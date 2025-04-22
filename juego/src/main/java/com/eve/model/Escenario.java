@@ -5,6 +5,8 @@ package com.eve.model;
 public class Escenario {
 
     private int[][] escenario;
+    private String suelo;
+    private String paredes;
 
     public Escenario() {
 
