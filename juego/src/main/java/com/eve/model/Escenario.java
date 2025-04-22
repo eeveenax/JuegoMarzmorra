@@ -4,7 +4,7 @@ package com.eve.model;
 
 public class Escenario {
 
-    int[][] escenario;
+    private int[][] escenario;
 
     public Escenario() {
 
