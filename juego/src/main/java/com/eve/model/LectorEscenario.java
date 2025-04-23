@@ -14,6 +14,15 @@ public class LectorEscenario {
 
     }
 
+    /**
+     * Método para la lectura del fichero csv de los escenarios
+     * 
+     * @param ficheroEntrada ruta del fichero de entrada a leer
+     * @return la matriz completada con los elementos que deben usarse: p para pared
+     *         y s para suelo
+     * @throws Exception
+     */
+
     public String[][] leerCSV(File ficheroEntrada) throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada))) {
             String linea;
