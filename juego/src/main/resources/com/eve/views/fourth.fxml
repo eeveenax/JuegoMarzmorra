@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane fx:id="splitPane" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane fx:id="anchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+    <AnchorPane fx:id="anchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Label layoutX="24.0" layoutY="22.0" text="Label" />
+            <Label layoutX="24.0" layoutY="40.0" text="Label" />
+            <Label layoutX="24.0" layoutY="58.0" text="Label" />
+            <Label layoutX="24.0" layoutY="76.0" text="Label" />
+            <Label layoutX="24.0" layoutY="98.0" text="Label" />
+            <Label layoutX="24.0" layoutY="132.0" text="Label" />
+            <Label layoutX="24.0" layoutY="118.0" text="Label" />
+            <Label layoutX="24.0" layoutY="151.0" text="Label" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
