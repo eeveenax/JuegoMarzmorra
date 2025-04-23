@@ -1,25 +1,34 @@
 package com.eve.model;
 
+import java.io.File;
+
 /** Clase escenario, para crear el campo e juego */
 
 public class Escenario {
 
-    private int[][] escenario;
+    private String[][] escenario;
     private String suelo;
     private String paredes;
 
+    /** Constructor de la clase escenario */
+
     public Escenario() {
 
-        this.escenario = new int[6][6];
+        this.escenario = new String[8][8];
 
     }
 
-    public int[][] getEscenario() {
+    public String[][] getEscenario() {
         return this.escenario;
     }
 
-    public void setEscenario(int[][] escenario) {
-        this.escenario = escenario;
+    public void setEscenario(String[][] escenario) {
+        LectorEscenario lector = new LectorEscenario();
+        try {
+            this.escenario = lector.leerCSV(new File("juego\\src\\main\\resources\\com\\eve\\data\\escenario.csv"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String getSuelo() {
