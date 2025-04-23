@@ -22,6 +22,22 @@ public class Escenario {
         this.escenario = escenario;
     }
 
+    public String getSuelo() {
+        return this.suelo;
+    }
+
+    public void setSuelo(String suelo) {
+        this.suelo = suelo;
+    }
+
+    public String getParedes() {
+        return this.paredes;
+    }
+
+    public void setParedes(String paredes) {
+        this.paredes = paredes;
+    }
+
     /** Método para crear el escenario del juego, con paredes y suelos */
     public void crearEscenario() {
 

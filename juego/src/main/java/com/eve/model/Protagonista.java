@@ -40,6 +40,14 @@ public class Protagonista extends Personaje {
         this.muertes = muertes;
     }
 
+    public TipoJug getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(TipoJug tipo) {
+        this.tipo = tipo;
+    }
+
     public void matar() {
 
     }
