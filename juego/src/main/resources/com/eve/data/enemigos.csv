@@ -1,2 +1,11 @@
-puntosVida,danio,fuerza,defensa,velocidad,percepcion
-
+nombreEnemigo,puntosVida,danio,fuerza,defensa,velocidad,percepcion
+a1,8,0,10,4,2,3
+b1,20,0,30,30,10,5
+c1,80,0,50,80,40,7
+a2,10,0,8,4,2,3
+b2,30,0,20,20,10,5
+c2,60,0,30,40,40,7
+a3,8,0,8,10,2,3
+b3,20,0,20,60,10,5
+c3,40,0,20,80,40,7
+mainBoss,100,0,60,90,100,10
