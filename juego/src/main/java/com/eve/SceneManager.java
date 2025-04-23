@@ -55,7 +55,7 @@ public class SceneManager {
      *               escenas.
      * @param styles el nombre de la hoja de estilo CSS a aplicar a las escenas.
      */
-
+    @SuppressWarnings("exports")
     public void init(Stage stage, String styles) {
         this.stage = stage;
         this.styles = App.class.getResource("styles/" + styles + ".css"); // Ruta al archivo CSS
@@ -68,6 +68,7 @@ public class SceneManager {
      * @param stage la ventana principal de la aplicación donde se mostrarán las
      *              escenas.
      */
+    @SuppressWarnings("exports")
     public void init(Stage stage) {
         this.stage = stage;
     }
@@ -127,6 +128,7 @@ public class SceneManager {
         }
     }
 
+    @SuppressWarnings("exports")
     public Scene getScene(SceneID sceneID) {
         if (scenes.containsKey(sceneID)) {
             return scenes.get(sceneID);

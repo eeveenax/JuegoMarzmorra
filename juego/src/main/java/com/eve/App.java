@@ -32,10 +32,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Establece el título de la ventana
-        stage.setTitle("Grid y Listas");
+        stage.setTitle("Bichitos y Mazmorras");
 
         // Establece el icono de la ventana
-        stage.getIcons().add(new Image(App.class.getResource("images/logo.png").toExternalForm()));
+        stage.getIcons().add(new Image(App.class.getResource("images/icono.png").toExternalForm()));
 
         // Obtiene la instancia del SceneManager
         SceneManager sm = SceneManager.getInstance();
