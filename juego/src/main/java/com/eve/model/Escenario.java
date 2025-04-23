@@ -4,7 +4,9 @@ package com.eve.model;
 
 public class Escenario {
 
-    int[][] escenario;
+    private int[][] escenario;
+    private String suelo;
+    private String paredes;
 
     public Escenario() {
 
@@ -18,6 +20,22 @@ public class Escenario {
 
     public void setEscenario(int[][] escenario) {
         this.escenario = escenario;
+    }
+
+    public String getSuelo() {
+        return this.suelo;
+    }
+
+    public void setSuelo(String suelo) {
+        this.suelo = suelo;
+    }
+
+    public String getParedes() {
+        return this.paredes;
+    }
+
+    public void setParedes(String paredes) {
+        this.paredes = paredes;
     }
 
     /** Método para crear el escenario del juego, con paredes y suelos */
