@@ -17,16 +17,15 @@ import java.io.IOException;
 public class App extends Application {
 
     /**
-     * Método que se ejecuta cuando la aplicación JavaFX inicia.
+     * Método que se ejecuta cuando se inicia JavaFX.
      * 
-     * Este método configura el título de la ventana, establece el icono de la
-     * ventana,
-     * inicializa el <code>SceneManager</code>, configura las escenas disponibles y
-     * carga la escena principal.
+     * Se establecen: título de la ventana, icono, escenas disponibles.
+     * Se inicializa el <code>SceneManager</code>.
+     * Se carga la escena principal.
      * 
-     * @param stage el <code>Stage</code> principal de la aplicación, que representa
-     *              la ventana.
-     * @throws IOException si ocurre un error al cargar los recursos o las vistas.
+     * @param stage el Stage que representa la ventana principal de la app.
+     * @throws IOException si ocurre algún error cuando se cargan los recursos o las
+     *                     vistas.
      */
     @SuppressWarnings("exports")
     @Override
@@ -34,21 +33,25 @@ public class App extends Application {
         // Establece el título de la ventana
         stage.setTitle("Bichitos y Mazmorras");
 
-        // Establece el icono de la ventana
+        // Icono de la ventana
         stage.getIcons().add(new Image(App.class.getResource("images/icono.png").toExternalForm()));
 
-        // Obtiene la instancia del SceneManager
+        // Instancia del SceneManager
         SceneManager sm = SceneManager.getInstance();
 
-        // Inicializa el SceneManager con el stage y una ruta de estilos
+        // Ruta de estilos, para que quede fancy
         sm.init(stage, "style");
 
         // Configura las escenas con identificadores
-        sm.setScene(SceneID.PRIMARY, "primary");
+        sm.setScene(SceneID.TERTIARY, "tertiary");
+        sm.setScene(SceneID.QUATERNARY, "quaternary");
+        sm.setScene(SceneID.QUINTENNIAL, "quintennial");
         sm.setScene(SceneID.SECONDARY, "secondary");
+        sm.setScene(SceneID.PRIMARY, "primary");
+        sm.setScene(SceneID.MAIN, "main");
 
-        // Carga la escena principal
-        sm.loadScene(SceneID.PRIMARY);
+        // Sirve para cargar la escena principal
+        sm.loadScene(SceneID.MAIN);
     }
 
     public static void main(String[] args) {
