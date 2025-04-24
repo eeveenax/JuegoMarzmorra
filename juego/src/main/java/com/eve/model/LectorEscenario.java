@@ -16,6 +16,8 @@ public class LectorEscenario {
 
     /**
      * Método para la lectura del fichero csv de los escenarios
+     * Se crea la variable fila para establecer que fila de la matriz ha de
+     * rellenarse con los datos del array DATOS.
      * 
      * @param ficheroEntrada ruta del fichero de entrada a leer
      * @return la matriz completada con los elementos que deben usarse: p para pared
@@ -26,25 +28,22 @@ public class LectorEscenario {
     public String[][] leerCSV(File ficheroEntrada) throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada))) {
             String linea;
+            int fila = 0;
 
-            if ((linea = br.readLine()) == null)
-                throw new Exception("Texto vacío");
-
-            while ((linea = br.readLine()) != null) {
+            while ((linea = br.readLine()) != null && fila < 8) {
                 String[] datos = linea.split(",");
 
-                for (int i = 0; i < escenario.length; i++) {
-                    for (int j = 0; j < escenario[i].length; j++) {
-                        escenario[i][j] = datos[j];
-                    }
-
+                for (int j = 0; j < 8; j++) {
+                    escenario[fila][j] = datos[j];
                 }
 
+                fila++;
             }
+
         } catch (IOException e) {
             e.printStackTrace();
+            throw new Exception("Error al leer el archivo: " + e.getMessage());
         }
-
         return this.escenario;
     }
 
