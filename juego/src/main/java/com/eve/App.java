@@ -45,7 +45,7 @@ public class App extends Application {
 
         // Configura las escenas con identificadores
         sm.setScene(SceneID.PRIMARY, "primary");
-        sm.setScene(SceneID.SECONDAARY, "secondary");
+        sm.setScene(SceneID.SECONDARY, "secondary");
 
         // Carga la escena principal
         sm.loadScene(SceneID.PRIMARY);
