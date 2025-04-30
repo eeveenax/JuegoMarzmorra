@@ -1,0 +1,7 @@
+imagen,nombreEnemigo,puntosVida,porcentajeCritico,fuerza,defensa,xpDan,vidaDan,velocidad,percepcion,defensaDan,fuerzaDan,id
+imagenEA1,a1,40,10,10,4,25,4,2,3,5,5,1
+imagenEA1,a1,40,10,10,4,25,4,2,3,5,5,2
+imagenEA2,a2,40,10,8,10,75,4,2,3,5,5,3
+imagenEA2,a2,40,10,8,10,75,4,2,3,5,5,4
+imagenEA3,a3,40,10,12,6,150,2,2,3,5,5,5
+imagenEA3,a3,40,10,12,6,150,2,2,3,5,5,6

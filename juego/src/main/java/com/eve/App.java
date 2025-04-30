@@ -7,13 +7,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * La clase <code>App</code> es la aplicación principal que extiende la clase
- * <code>Application</code> de JavaFX.
- * Esta clase es responsable de iniciar la aplicación, configurar la ventana
+ * Clase App: aplicación principal.
+ * Esta clase inicia la aplicación, configura la ventana
  * principal (Stage),
- * establecer el icono de la ventana, y gestionar las escenas mediante el
- * <code>SceneManager</code>.
+ * establece el icono de la ventana y gestiona las escenas.
  */
+
+/** @author Evelia Gil Pa redes y Maria Ceballos Mesias */
+
 public class App extends Application {
 
     /**
@@ -41,13 +42,9 @@ public class App extends Application {
 
         // Ruta de estilos, para que quede fancy
         sm.init(stage, "style");
-
         // Configura las escenas con identificadores
-        sm.setScene(SceneID.TERTIARY, "tertiary");
-        sm.setScene(SceneID.QUATERNARY, "quaternary");
-        sm.setScene(SceneID.QUINTENNIAL, "quintennial");
-        sm.setScene(SceneID.SECONDARY, "secondary");
-        sm.setScene(SceneID.PRIMARY, "primary");
+
+        // principal, la que se inicia
         sm.setScene(SceneID.MAIN, "main");
 
         // Sirve para cargar la escena principal

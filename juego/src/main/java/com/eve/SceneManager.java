@@ -95,7 +95,7 @@ public class SceneManager {
             URL url = App.class.getResource("views/" + fxml + ".fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(url);
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, screenWidth * 0.7, screenHeight * 0.7);
+            Scene scene = new Scene(root, screenWidth * 0.8, screenHeight * 0.9);
             if (styles != null)
                 scene.getStylesheets().add(styles.toExternalForm());
             scenes.put(sceneID, scene); // Almacena la escena en el mapa, creado anteriormente (el cual estaba vacío),
@@ -123,6 +123,7 @@ public class SceneManager {
      * @param sceneID identificador de la escena a cargar.
      */
     public void loadScene(SceneID sceneID) {
+
         if (scenes.containsKey(sceneID)) {
             stage.setScene(scenes.get(sceneID)); // El setScene establece (set) la escena en la ventana principal
             stage.show(); // Carga la ventana en la que se muestra la nueva escena

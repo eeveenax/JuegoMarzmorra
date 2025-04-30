@@ -1,6 +1,6 @@
 package com.eve.model;
 
 enum TipoJug {
-    Sanador, Aventurero, Protector
+    ASESINO, AVENTURERO, PROTECTOR
 
 }

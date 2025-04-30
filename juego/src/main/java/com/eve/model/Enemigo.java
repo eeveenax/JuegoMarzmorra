@@ -4,21 +4,44 @@ package com.eve.model;
 public class Enemigo extends Personaje {
 
     private int percepcion;
+    private int xpDan;
+    private int vidaDan;
+    private int defensaDan;
+    private int fuerzaDan;
+
+    public Enemigo() {
+        super();
+    }
 
     /**
      * Construtor de la clase enemigos
      * 
-     * @param puntosvida
-     * @param danio
-     * @param fuerza
-     * @param defensa
-     * @param velocidad
-     * @param percepcion
+     * @param nombre            de los enemigos
+     * @param puntosvida        de los enemigos
+     * @param porcentajeCritico para que hagan más daño de forma aleatoria
+     * @param fuerza            con la que pegan los enemigos
+     * @param defensa           o escudo de los enemigos
+     * @param velocidad         de movimiento, establece el orden de peferencia de
+     *                          movimiento
+     * @param vidaDan           Vida que dan cuando se les mata
+     * @param xpDan             Experiencia que dan cuando se les mata
+     * @param percepcion        determina si el enemigo se mueve hace el prota o no
+     * @param defensaDan        Defensa que da el enemigo al protagonista cuando
+     *                          muere
+     * @param fuerzaDanº        Fuerza que da el enemigo al protagonista cuando
+     *                          muere
      */
-
-    public Enemigo(int puntosvida, int danio, int fuerza, int defensa, int velocidad, int percepcion) {
-        super(puntosvida, danio, fuerza, defensa, velocidad);
+    public Enemigo(String imagen, String nombre, int puntosvida, int porcentajeCritico, int fuerza, int defensa,
+            int xpDan, int vidaDan,
+            int velocidad,
+            int percepcion, int defensaDan, int fuerzaDan, int id) {
+        super(imagen, nombre, puntosvida, porcentajeCritico, fuerza, defensa, velocidad, id);
         this.percepcion = percepcion;
+        this.vidaDan = vidaDan;
+        this.xpDan = xpDan;
+        this.defensaDan = defensaDan;
+        this.fuerzaDan = fuerzaDan;
+
     }
 
     /**
@@ -38,6 +61,62 @@ public class Enemigo extends Personaje {
      */
     public void setPercepcion(int percepcion) {
         this.percepcion = percepcion;
+    }
+
+    /**
+     * 
+     * @return xpDan: experiencia que dan
+     */
+    public int getXpDan() {
+        return this.xpDan;
+    }
+
+    public void setXpDan(int xpDan) {
+        this.xpDan = xpDan;
+    }
+
+    /**
+     * Vida que dan
+     * 
+     * @return vidaDan
+     */
+    public int getVidaDan() {
+        return this.vidaDan;
+    }
+
+    public void setVidaDan(int vidaDan) {
+        this.vidaDan = vidaDan;
+    }
+
+    /**
+     * Getter de la denfesa que le dan al prota cuando se muere
+     * 
+     * @return defensaDan
+     */
+    public int getDefensaDan() {
+        return this.defensaDan;
+    }
+
+    public void setDefensaDan(int defensaDan) {
+        this.defensaDan = defensaDan;
+    }
+
+    /**
+     * Getter de la fuerza que le dan al prota cuando se muere
+     * 
+     * @return fuerzaDan
+     */
+    public int getFuerzaDan() {
+        return this.fuerzaDan;
+    }
+
+    public void setFuerzaDan(int fuerzaDan) {
+        this.fuerzaDan = fuerzaDan;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " " + this.xpDan + " " + this.vidaDan + " " + this.percepcion;
     }
 
 }

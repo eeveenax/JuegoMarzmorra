@@ -3,9 +3,25 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane fx:id="splitPane" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane fx:id="splitPane" dividerPositions="0.75"  orientation="VERTICAL" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eve.controllers.PrimaryController">
   <items>
-    <AnchorPane fx:id="anchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-    <AnchorPane fx:id="anchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+    <AnchorPane fx:id="anchorPane1">
+         <children>
+            <SplitPane fx:id="splitPaneSup" dividerPositions="0.6">
+              <items>
+                <AnchorPane fx:id="anchorPaneJuego" />
+                <AnchorPane fx:id="anchorPaneProta" />
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+    <AnchorPane fx:id="anchorPane2" minHeight="0.0" minWidth="0.0">
+         <children>
+            <SplitPane fx:id="splitPaneInf" dividerPositions="0.5">
+              <items>
+                <AnchorPane fx:id="anchorPaneMensaje" />
+                <AnchorPane fx:id="anchorPaneEnemigo" />
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
   </items>
 </SplitPane>

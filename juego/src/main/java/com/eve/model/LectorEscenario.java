@@ -6,12 +6,10 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class LectorEscenario {
-
     private String[][] escenario;
 
     public LectorEscenario() {
         this.escenario = new String[8][8];
-
     }
 
     /**
@@ -29,17 +27,13 @@ public class LectorEscenario {
         try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada))) {
             String linea;
             int fila = 0;
-
             while ((linea = br.readLine()) != null && fila < 8) {
                 String[] datos = linea.split(",");
-
                 for (int j = 0; j < 8; j++) {
                     escenario[fila][j] = datos[j];
                 }
-
                 fila++;
             }
-
         } catch (IOException e) {
             e.printStackTrace();
             throw new Exception("Error al leer el archivo: " + e.getMessage());

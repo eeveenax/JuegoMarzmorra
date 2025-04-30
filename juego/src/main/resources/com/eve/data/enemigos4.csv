@@ -1,0 +1,10 @@
+imagen,nombreEnemigo,puntosVida,porcentajeCritico,fuerza,defensa,xpDan,vidaDan,velocidad,percepcion,defensaDan,id
+imagenEA1,a1,40,10,10,4,25,4,2,3,5,5,19
+imagenEB1,b1,60,30,30,10,200,6,10,5,8,8,20
+imagenEC1,c1,80,40,60,60,300,6,40,7,10,10,21
+imagenEA2,a2,40,10,8,10,75,4,2,3,5,5,22
+imagenEB2,b2,60,30,25,20,250,6,10,5,8,8,23
+imagenEC2,c2,80,40,40,40,350,6,40,7,10,10,24
+imagenEA3,a3,40,10,12,6,150,2,2,3,5,5,25
+imagenEB3,b3,60,30,30,20,300,4,10,5,8,8,26
+imagenEC3,c3,80,40,20,60,400,10,40,7,10,10,27
