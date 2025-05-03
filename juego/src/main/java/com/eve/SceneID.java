@@ -3,5 +3,5 @@ package com.eve;
 /** Main: */
 
 public enum SceneID {
-    MAIN, PRIMARY, SECONDARY, TERTIARY, QUATERNARY, QUINTENNIAL
+    MAIN, PRIMARY, GAME, PLAYER, CONSOLE, ENEMIES
 }

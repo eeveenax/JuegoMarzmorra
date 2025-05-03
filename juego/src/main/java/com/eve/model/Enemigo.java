@@ -1,5 +1,7 @@
 package com.eve.model;
 
+import java.util.Random;
+
 /** Clase enemigo, para contruir a los enemigos */
 public class Enemigo extends Personaje {
 
@@ -112,6 +114,34 @@ public class Enemigo extends Personaje {
 
     public void setFuerzaDan(int fuerzaDan) {
         this.fuerzaDan = fuerzaDan;
+    }
+
+    @Override
+    public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
+        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
+        int[] pos = this.getPosicion();
+        escenario[pos[0]][pos[1]] = "s";
+        this.setPosicion(new int[] { nuevaFila, nuevaCol });
+        escenario[nuevaFila][nuevaCol] = "" + this.id;
+        gestor.notifyObservers();
+    }
+
+    @Override
+    public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
+        Random r = new Random();
+        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
+        // Datos del protagonista
+        Protagonista protagonista = gestor.buscarProta();
+        int vidaProta = protagonista.getPuntosvida();
+        int defensaProta = protagonista.getDefensa();
+        int danioAPersonaje = this.fuerza - defensaProta;
+        if (r.nextInt(100) < this.porcentajeCritico)
+            danioAPersonaje *= 2;
+        if (danioAPersonaje > 0) {
+            vidaProta -= danioAPersonaje;
+            protagonista.setPuntosvida(vidaProta);
+            gestor.notifyObservers();
+        }
     }
 
     @Override

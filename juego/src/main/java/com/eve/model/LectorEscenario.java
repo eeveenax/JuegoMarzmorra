@@ -4,12 +4,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class LectorEscenario {
     private String[][] escenario;
+    int numFilas = 0;
+    int numColumnas = 0;
 
     public LectorEscenario() {
-        this.escenario = new String[8][8];
+
     }
 
     /**
@@ -23,22 +26,60 @@ public class LectorEscenario {
      * @throws Exception
      */
 
-    public String[][] leerCSV(File ficheroEntrada) throws Exception {
+    public String[][] leerCSV(File ficheroEntrada) throws IOException {
+        LinkedList<String[]> filas = new LinkedList<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada))) {
             String linea;
-            int fila = 0;
-            while ((linea = br.readLine()) != null && fila < 8) {
-                String[] datos = linea.split(",");
-                for (int j = 0; j < 8; j++) {
-                    escenario[fila][j] = datos[j];
-                }
-                fila++;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.trim().split(",");
+                filas.add(datos);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new Exception("Error al leer el archivo: " + e.getMessage());
         }
+        if (filas.isEmpty()) {
+            throw new IOException("El archivo CSV está vacío.");
+        }
+        numFilas = filas.size();
+        numColumnas = filas.get(0).length;
+        this.escenario = new String[numFilas][numColumnas];
+
+        for (int i = 0; i < numFilas; i++) {
+            if (filas.get(i).length != numColumnas) {
+                throw new IOException("El archivo CSV tiene filas con distinto número de columnas.");
+            } else {
+                for (int j = 0; j < numColumnas; j++) {
+                    this.escenario[i][j] = filas.get(i)[j];
+                }
+            }
+        }
+        setNumColumnas(numColumnas);
+        setNumFilas(numFilas);
+
         return this.escenario;
+    }
+
+    public String[][] getEscenario() {
+        return this.escenario;
+    }
+
+    public void setEscenario(String[][] escenario) {
+        this.escenario = escenario;
+    }
+
+    public int getNumFilas() {
+        return this.numFilas;
+    }
+
+    public void setNumFilas(int numFilas) {
+        this.numFilas = numFilas;
+    }
+
+    public int getNumColumnas() {
+        return this.numColumnas;
+    }
+
+    public void setNumColumnas(int numColumnas) {
+        this.numColumnas = numColumnas;
     }
 
 }

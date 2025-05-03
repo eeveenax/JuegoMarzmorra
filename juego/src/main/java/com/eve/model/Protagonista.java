@@ -1,12 +1,16 @@
 package com.eve.model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
+
 public class Protagonista extends Personaje {
 
     private int nivel;
     private int muertes;
     private int xp;
-    private String protaChico = "/com/eve/images/chico.png";
-    private String protaChica = "/com/eve/images/chica.png";
+    private String protaChico = "/com/eve/images/protaChico.png";
+    private String protaChica = "/com/eve/images/protaChica.png";
     private String tipoJugador;
 
     public Protagonista() {
@@ -122,6 +126,67 @@ public class Protagonista extends Personaje {
 
     public void setTipoJugador(String tipoJugador) {
         this.tipoJugador = tipoJugador;
+    }
+
+    @Override
+    public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
+        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
+        int[] pos = this.getPosicion();
+        escenario[pos[0]][pos[1]] = "s";
+        this.setPosicion(new int[] { nuevaFila, nuevaCol });
+        escenario[nuevaFila][nuevaCol] = "" + this.id;
+        gestor.setEvento("");
+
+        gestor.notifyObservers();
+    }
+
+    @Override
+    public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
+        Random r = new Random();
+        ArrayList<Personaje> personajes = Proveedor.getInstance().getGestorJuego().getPersonajes();
+        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
+
+        // Datos del enemigo
+        int id = Integer.parseInt(escenario[nuevaFila][nuevaCol]);
+        Enemigo enemigo = gestor.buscarEnemigo(id);
+        int vidaEnemigo = enemigo.getPuntosvida();
+        int defensaEnemigo = enemigo.getDefensa();
+        int xpDa = enemigo.getXpDan();
+        int vidaDa = enemigo.getVidaDan();
+        int defensaDan = enemigo.getDefensaDan();
+
+        int danioAenemigo = this.fuerza - defensaEnemigo;
+        if (r.nextInt(100) < this.porcentajeCritico)
+            danioAenemigo *= 2;
+
+        if (danioAenemigo > 0) {
+            vidaEnemigo -= danioAenemigo;
+            enemigo.setPuntosvida(vidaEnemigo);
+            gestor.notifyObservers();
+        }
+
+        if (vidaEnemigo <= 0) {
+            this.puntosvida += vidaDa;
+            this.xp += xpDa;
+            this.defensa += defensaDan;
+            this.muertes++;
+            this.fuerza = this.fuerza + enemigo.getFuerzaDan();
+            gestor.subirNivel();
+            escenario[nuevaFila][nuevaCol] = "s";
+            gestor.setEvento("Enemigo Asesinado con el ID: " + enemigo.getId() + ". Recibes " + enemigo.getVidaDan()
+                    + " de vida, " + enemigo.getXpDan() + " de experiencia, " + enemigo.getFuerzaDan() + " de fuerza y "
+                    + enemigo.getDefensaDan() + " de defensa.");
+
+            for (Iterator<Personaje> iterator = personajes.iterator(); iterator.hasNext();) {
+                Personaje p = iterator.next();
+                if (p.getId() == enemigo.getId()) {
+                    iterator.remove();
+                    break;
+                }
+            }
+            gestor.notifyObservers();
+        }
+
     }
 
     @Override

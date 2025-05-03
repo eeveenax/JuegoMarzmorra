@@ -1,6 +1,9 @@
 package com.eve.model;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
 
 /** Clase escenario, para crear el campo e juego */
 
@@ -11,7 +14,6 @@ public class Escenario {
 
     /** Constructor de la clase escenario */
     public Escenario() {
-        this.escenario = new String[8][8];
         setEscenario("");
     }
 
@@ -53,6 +55,32 @@ public class Escenario {
 
     public String getPared() {
         return this.pared;
+    }
+
+    public void generarPosiciones() {
+        GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
+        HashSet<String> posicionesOcupadas = new HashSet<>();
+        ArrayList<Personaje> personajes = gestorJuego.getPersonajes();
+        Random r = new Random();
+
+        for (int i = 0; i < personajes.size(); i++) {
+            if (personajes.get(i) instanceof Protagonista) {
+                personajes.get(i).setPosicion(new int[] { 0, 0 });
+                posicionesOcupadas.add("0-0");
+                escenario[0][0] = "" + personajes.get(i).getId();
+            }
+            if (personajes.get(i) instanceof Enemigo) {
+                int posX, posY;
+                do {
+                    posX = r.nextInt(escenario.length);
+                    posY = r.nextInt(escenario[0].length);
+                } while (!escenario[posX][posY].equals("s") || posicionesOcupadas.contains(posX + "-" + posY));
+
+                personajes.get(i).setPosicion(new int[] { posX, posY });
+                escenario[posX][posY] = "" + personajes.get(i).getId();
+            }
+        }
+        gestorJuego.notifyObservers();
     }
 
 }

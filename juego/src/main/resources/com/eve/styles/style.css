@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rubik+Dirt&display=swap");
+
+.root {
+  -fx-background-color: #07040e;
+  -fx-font-family: "Pixelify Sans", sans-serif;
+  -fx-font-size: 18px;
+  -fx-border-color: transparent;
+}
+
+/* Labels */
+.label {
+  -fx-text-fill: #e0e0e0;
+}
+
+/* Botones */
+.button {
+  -fx-background-color: #8e2074;
+  -fx-text-fill: #ffffff;
+  -fx-background-radius: 8;
+  -fx-padding: 8 16;
+  -fx-border-color: transparent;
+}
+
+/* TextField y TextArea */
+.text-field,
+.text-area {
+  -fx-background-color: #454343;
+  -fx-text-fill: #ffffff;
+  -fx-border-color: #8c0cc8;
+  -fx-border-radius: 5;
+  -fx-background-radius: 5;
+}
+
+/* ScrollPane- usado en los enemigos*/
+.scroll-pane {
+  -fx-background: #07040e;
+  -fx-border-color: transparent;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+/* Eliminar cualquier borde por foco en ScrollPane */
+.scroll-pane:focused,
+.scroll-pane:filled:focused,
+.scroll-pane:focused > .viewport {
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-border-color: transparent;
+  -fx-background-color: #1e1e1e;
+}
+/* ScrollBar general */
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+  -fx-background-color: transparent;
+}
+.scroll-bar .thumb {
+  -fx-background-color: #444444;
+  -fx-background-radius: 5;
+}
+.scroll-bar .thumb:hover {
+  -fx-background-color: #666666;
+}
+
+/* Estilo para el SplitMenuButton */
+.splitMenuButton {
+  -fx-background-radius: 8;
+  -fx-padding: 8 16;
+  -fx-font-size: 14px;
+  -fx-background-color: transparent;
+}
+
+/* Estilo para el botón principal dentro del SplitMenuButton */
+.splitMenuButton .label {
+  -fx-background-color: #1e7585; /* Hacer que la flecha no tenga fondo */
+  -fx-text-fill: #ffffff; /* Color del texto del botón */
+  -fx-font-size: 14px;
+  -fx-padding: 8 16; /* Espaciado adecuado */
+}
+
+/* Asegurarse de que el fondo del botón se mantenga cuando se presione */
+.splitMenuButton .button:pressed {
+  -fx-background-color: #0e373e;
+}
+
+/* Estilo para las opciones del menú */
+.splitMenuButton .menu-item {
+  -fx-text-fill: #c8c9c9; /* Color del texto de las opciones */
+  -fx-font-size: 14px;
+  -fx-background-color: #1e7585; /* Hacer que la flecha no tenga fondo */
+}
+
+/* Estilo para la flecha del SplitMenuButton (la flecha que abre el menú) */
+.splitMenuButton .arrow-button {
+  -fx-background-color: #1e7585; /* Hacer que la flecha no tenga fondo */
+}
+
+.hBox {
+  -fx-preserve-ratio: true; /* Mantener la proporción de la imagen */
+  -fx-alignment: center; /* Centrar la imagen dentro de su contenedor */
+}
+
+.split-pane > .split-pane-divider {
+  -fx-background-color: #77a2aa;
+  -fx-padding: 3;
+}
+
+.split-pane {
+  -fx-border-width: 0;
+  -fx-border-color: transparent;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+
+.context-menu {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}

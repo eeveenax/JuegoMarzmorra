@@ -37,6 +37,7 @@ public class LectorEnemigos {
      */
 
     public ArrayList<Personaje> leerCSV(File ficheroEntrada) throws Exception {
+        this.enemigos.clear();
         try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada))) {
             String linea;
             if ((linea = br.readLine()) == null)

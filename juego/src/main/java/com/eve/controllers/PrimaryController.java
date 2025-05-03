@@ -34,9 +34,9 @@ public class PrimaryController {
         SceneManager sm = SceneManager.getInstance();
 
         // La vista del juego
-        sm.setScene(SceneID.SECONDARY, "secondary");
+        sm.setScene(SceneID.GAME, "game");
 
-        Scene juego = sm.getScene(SceneID.SECONDARY);
+        Scene juego = sm.getScene(SceneID.GAME);
         AnchorPane.setBottomAnchor(juego.getRoot(), 0.0);
         AnchorPane.setTopAnchor(juego.getRoot(), 0.0);
         AnchorPane.setLeftAnchor(juego.getRoot(), 0.0);
@@ -44,9 +44,9 @@ public class PrimaryController {
         anchorPaneJuego.getChildren().setAll(juego.getRoot());
 
         // La vista del prota
-        sm.setScene(SceneID.TERTIARY, "tertiary");
+        sm.setScene(SceneID.PLAYER, "player");
 
-        Scene prota = sm.getScene(SceneID.TERTIARY);
+        Scene prota = sm.getScene(SceneID.PLAYER);
         AnchorPane.setBottomAnchor(prota.getRoot(), 0.0);
         AnchorPane.setTopAnchor(prota.getRoot(), 0.0);
         AnchorPane.setLeftAnchor(prota.getRoot(), 0.0);
@@ -54,9 +54,9 @@ public class PrimaryController {
         anchorPaneProta.getChildren().setAll(prota.getRoot());
 
         // La vista con los mensajes
-        sm.setScene(SceneID.QUATERNARY, "quaternary");
+        sm.setScene(SceneID.CONSOLE, "console");
 
-        Scene mensaje = sm.getScene(SceneID.QUATERNARY);
+        Scene mensaje = sm.getScene(SceneID.CONSOLE);
         AnchorPane.setBottomAnchor(mensaje.getRoot(), 0.0);
         AnchorPane.setTopAnchor(mensaje.getRoot(), 0.0);
         AnchorPane.setLeftAnchor(mensaje.getRoot(), 0.0);
@@ -64,9 +64,9 @@ public class PrimaryController {
         anchorPaneMensaje.getChildren().setAll(mensaje.getRoot());
 
         // La vista de los enemigos
-        sm.setScene(SceneID.QUINTENNIAL, "quintennial");
+        sm.setScene(SceneID.ENEMIES, "enemies");
 
-        Scene enemigo = sm.getScene(SceneID.QUINTENNIAL);
+        Scene enemigo = sm.getScene(SceneID.ENEMIES);
         AnchorPane.setBottomAnchor(enemigo.getRoot(), 0.0);
         AnchorPane.setTopAnchor(enemigo.getRoot(), 0.0);
         AnchorPane.setLeftAnchor(enemigo.getRoot(), 0.0);

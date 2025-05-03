@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -72,9 +73,14 @@ public class MainController {
     Label Lfuerza2;
     @FXML
     Label Lvelocidad2;
+    @FXML
+    StackPane stackPane1;
+    @FXML
+    StackPane stackPane2;
 
     @FXML
     public void initialize() {
+        Proveedor.getInstance().setGestorJuego(new GestorJuego());
         GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
         ProtasEstadisticas estadisticas = new ProtasEstadisticas();
         /**

@@ -30,7 +30,7 @@ public class Proveedor {
         return this.gestorJuego;
     }
 
-    public void setGestorDragones(GestorJuego gestorJuego) {
+    public void setGestorJuego(GestorJuego gestorJuego) {
         this.gestorJuego = gestorJuego;
     }
 }

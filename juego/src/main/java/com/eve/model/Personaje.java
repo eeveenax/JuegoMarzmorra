@@ -1,14 +1,13 @@
 package com.eve.model;
 
-public class Personaje implements Comparable {
-
-    private int puntosvida;
-    private int porcentajeCritico;
-    private int fuerza;
-    private int defensa;
-    private int velocidad;
-    private String nombre;
-    private String imagen;
+public abstract class Personaje implements Comparable {
+    protected int puntosvida;
+    protected int porcentajeCritico;
+    protected int fuerza;
+    protected int defensa;
+    protected int velocidad;
+    protected String nombre;
+    protected String imagen;
     protected int[] posicion;
     protected int id;
 
@@ -172,6 +171,16 @@ public class Personaje implements Comparable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    // Método para mover a los personajes, que serán sobreescritos en cada tipo de
+    // personaje.
+    public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
+
+    }
+
+    public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
+
     }
 
     @Override
