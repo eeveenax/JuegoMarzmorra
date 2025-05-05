@@ -3,14 +3,24 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+
 <AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eve.controllers.GameController">
    <children>
+      <Pane prefHeight="610.0" prefWidth="820.0" />
+      <ImageView fitHeight="610.0" fitWidth="820.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@../images/fondo.jpg" />
+         </image>
+      </ImageView>
       <GridPane fx:id="gridPane" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
             <ColumnConstraints />
@@ -20,7 +30,7 @@
          </rowConstraints>
       </GridPane>
 
-      <GridPane fx:id="gridPane2" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridPane2" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
             <ColumnConstraints />
          </columnConstraints>
@@ -29,16 +39,18 @@
          </rowConstraints>
       </GridPane>
 
-      <VBox fx:id="vBox" alignment="CENTER" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #AF1740;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="vBox" alignment="CENTER" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #AF1740;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="LPerder" style="-fx-font-size: 20px;">
                <VBox.margin>
                   <Insets bottom="40.0" />
-               </VBox.margin></Label>
+               </VBox.margin>
+            </Label>
             <Button fx:id="buttonMenu" layoutX="10.0" layoutY="28.0" mnemonicParsing="false" text="Volver Menú">
                <VBox.margin>
                   <Insets />
-               </VBox.margin></Button>
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </children>

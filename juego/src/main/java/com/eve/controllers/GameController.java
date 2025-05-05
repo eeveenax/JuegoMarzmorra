@@ -113,6 +113,9 @@ public class GameController implements Observer {
         Image pared = new Image(getClass().getResourceAsStream(gestor.getEscenario().getPared()));
         String[][] escenario = gestor.getEscenario().getEscenario();
         gridPane.getChildren().clear();
+        gridPane.setHgap(0);
+        gridPane.setVgap(0);
+        gridPane.setPadding(Insets.EMPTY);
         int numFilas = escenario.length;
         int numColumnas = escenario[0].length;
 
@@ -132,9 +135,7 @@ public class GameController implements Observer {
                 }
                 imageView.setFitWidth(tamcoluma);
                 imageView.setFitHeight(tamfila);
-                imageView.setPreserveRatio(true);
-                imageView.setSmooth(false);
-                imageView.setCache(false);
+                imageView.setPreserveRatio(false);
                 gridPane.add(imageView, j, i);
             }
         }
