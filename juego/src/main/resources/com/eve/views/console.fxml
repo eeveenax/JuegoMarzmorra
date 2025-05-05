@@ -8,7 +8,7 @@
    <children>
       <VBox fx:id="vBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="Lmensaje" alignment="CENTER" style="-fx-font-size: 12;" text="Mensaje" textAlignment="CENTER" />
+            <Label fx:id="Lmensaje" alignment="CENTER" style="-fx-font-size: 14;" text="Mensaje" textAlignment="CENTER" />
             <Label fx:id="Lturnos" alignment="CENTER" text="" textAlignment="CENTER" />
          </children>
       </VBox>
