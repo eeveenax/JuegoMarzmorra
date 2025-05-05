@@ -16,7 +16,7 @@
          </children></AnchorPane>
     <AnchorPane fx:id="anchorPane2" minHeight="0.0" minWidth="0.0">
          <children>
-            <SplitPane fx:id="splitPaneInf" dividerPositions="0.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane fx:id="splitPaneInf" dividerPositions="0.67" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
                 <AnchorPane fx:id="anchorPaneMensaje" />
                 <AnchorPane fx:id="anchorPaneEnemigo" />
