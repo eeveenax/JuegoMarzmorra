@@ -12,7 +12,6 @@ public class LectorEscenario {
     int numColumnas = 0;
 
     public LectorEscenario() {
-
     }
 
     /**
@@ -66,6 +65,12 @@ public class LectorEscenario {
         this.escenario = escenario;
     }
 
+    /**
+     * Número de filas del escenario
+     * 
+     * @return entero del número de filas del escenario
+     */
+
     public int getNumFilas() {
         return this.numFilas;
     }
@@ -74,6 +79,11 @@ public class LectorEscenario {
         this.numFilas = numFilas;
     }
 
+    /**
+     * Número de columnas del escenario
+     * 
+     * @return entero del número de columnas del escenario
+     */
     public int getNumColumnas() {
         return this.numColumnas;
     }

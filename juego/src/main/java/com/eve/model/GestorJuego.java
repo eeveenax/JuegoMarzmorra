@@ -94,18 +94,11 @@ public class GestorJuego {
         this.nTurno = nTurno;
     }
 
-    public void subscribe(Observer observer) {
-        observers.add(observer);
-    }
-
-    public void unsubscribe(Observer observer) {
-        observers.remove(observer);
-    }
-
-    public void notifyObservers() {
-        observers.forEach(item -> item.onChange());
-    }
-
+    /**
+     * Método para buscar de forma más sencilla al prota, ya que solo hay uno.
+     * 
+     * @return protagonista
+     */
     public Protagonista buscarProta() {
         Protagonista prota = null;
         boolean encontrado = false;
@@ -118,6 +111,13 @@ public class GestorJuego {
         return prota;
     }
 
+    /**
+     * Método para buscar de forma más sencilla a un enemigo, para obtener sus datos
+     * cuando el prota le ataca.
+     * 
+     * @param id
+     * @return enemigo por ID buscado
+     */
     public Enemigo buscarEnemigo(int id) {
         for (Personaje p : personajes) {
             if (p.getId() == id && p instanceof Enemigo) {
@@ -138,6 +138,18 @@ public class GestorJuego {
 
     public void setObservers(ArrayList<Observer> observers) {
         this.observers = observers;
+    }
+
+    public void subscribe(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void unsubscribe(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers() {
+        observers.forEach(item -> item.onChange());
     }
 
     /**
@@ -200,6 +212,7 @@ public class GestorJuego {
             String[] auxX = new String[2];
             String[] auxY = new String[2];
             LinkedList<String> direcciones = new LinkedList<>();
+            /* Teclas a la inversa */
             if (posAux[1] > 0) {
                 auxX = new String[] { "A", "D" };
             } else {
@@ -210,7 +223,6 @@ public class GestorJuego {
             } else {
                 auxY = new String[] { "S", "W" };
             }
-
             if (posAux[1] == 0) {
                 direcciones.add(auxY[0]);
                 direcciones.add(auxX[0]);
@@ -222,6 +234,7 @@ public class GestorJuego {
                 direcciones.add(auxX[1]);
                 direcciones.add(auxY[1]);
             } else {
+                /* por teclas a la inversa */
                 if (Math.abs(posAux[1]) < Math.abs(posAux[0])) {
                     direcciones.add(auxX[0]);
                     direcciones.add(auxY[0]);
@@ -234,13 +247,11 @@ public class GestorJuego {
                     direcciones.add(auxX[1]);
                 }
             }
-
             boolean accionRealizada = false;
             while (!accionRealizada && direcciones.size() > 0) {
                 String direccion = direcciones.getFirst();
                 direcciones.remove(direccion);
                 String accion = comprobarAccion(posicionEnemigo, direccion);
-
                 switch (direccion) {
                     case "W":
                         switch (accion) {
@@ -323,9 +334,7 @@ public class GestorJuego {
                     default:
                         break;
                 }
-
             }
-
         } else {
             ArrayList<String> direcciones = new ArrayList<>(Arrays.asList("A", "W", "S", "D"));
             boolean movido = false;
@@ -503,6 +512,10 @@ public class GestorJuego {
 
     }
 
+    /*
+     * Si tuvieramos más escenarios, habría que pasarle la ruta del escenario para
+     * que se lea en setEscenario
+     */
     public void nuevosEnemigos(String nivel) {
         Protagonista protagonista = buscarProta();
         ArrayList<Personaje> personajesNuevos = new ArrayList<>();
