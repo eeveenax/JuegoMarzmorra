@@ -17,6 +17,12 @@ public class Escenario {
         setEscenario("");
     }
 
+    /**
+     * Método para conseguir el escenario
+     * 
+     * @return una matriz de Strings que representa el escenario
+     */
+
     public String[][] getEscenario() {
         return this.escenario;
     }
