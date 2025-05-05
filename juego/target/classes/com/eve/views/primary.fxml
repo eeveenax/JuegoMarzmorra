@@ -5,7 +5,7 @@
 
 <SplitPane fx:id="splitPane" dividerPositions="0.75" orientation="VERTICAL" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eve.controllers.PrimaryController">
   <items>
-    <AnchorPane fx:id="anchorPane1">
+    <AnchorPane fx:id="anchorPane1" style="-fx-background-color: red;">
          <children>
             <SplitPane fx:id="splitPaneSup" dividerPositions="0.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>

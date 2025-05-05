@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,9 +11,12 @@
 
 <AnchorPane fx:id="anchorPaneProta" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eve.controllers.PlayerController">
    <children>
-      <VBox fx:id="vBox" prefHeight="182.4" prefWidth="200.0" alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="vBox" alignment="TOP_CENTER" prefHeight="182.4" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="image" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="30.0" top="30.0" />
+               </VBox.margin></ImageView>
             <GridPane fx:id="gridPaneProta" alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -29,14 +33,14 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" />
               </rowConstraints>
                <children>
-                  <Label fx:id="Lnombre" text="NOMBRE: " alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                  <Label fx:id="Lnivel" text="NIVEL:" GridPane.rowIndex="1" alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                  <Label fx:id="LpuntosVida" text="PUNTOS VIDA:" GridPane.rowIndex="2" alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                  <Label fx:id="Lfuerza" text="FUERZA:" GridPane.rowIndex="3" alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER"/>
-                  <Label fx:id="Ldefensa" text="DEFENSA:" GridPane.rowIndex="4" alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                  <Label fx:id="Lmuertes" text="MUERTES:" GridPane.rowIndex="5" alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                  <Label fx:id="LXP" text="Experiencia: " GridPane.rowIndex="6" alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                  <Label fx:id="LPosiciones" text="Posiciones:" GridPane.rowIndex="7" alignment="CENTER" textAlignment="CENTER" GridPane.halignment="CENTER" />
+                  <Label fx:id="Lnombre" alignment="CENTER" text="NOMBRE: " textAlignment="CENTER" GridPane.halignment="CENTER" />
+                  <Label fx:id="Lnivel" alignment="CENTER" text="NIVEL:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label fx:id="LpuntosVida" alignment="CENTER" text="PUNTOS VIDA:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Label fx:id="Lfuerza" alignment="CENTER" text="FUERZA:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <Label fx:id="Ldefensa" alignment="CENTER" text="DEFENSA:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <Label fx:id="Lmuertes" alignment="CENTER" text="MUERTES:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                  <Label fx:id="LXP" alignment="CENTER" text="Experiencia: " textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                  <Label fx:id="LPosiciones" alignment="CENTER" text="Posiciones:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
                   <Label fx:id="Lnombre2" GridPane.columnIndex="1" />
                   <Label fx:id="Lnivel2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label fx:id="LpuntosVida2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -46,6 +50,9 @@
                   <Label fx:id="LXP2" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <Label fx:id="LPosiciones2" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </GridPane>
          </children>
       </VBox>

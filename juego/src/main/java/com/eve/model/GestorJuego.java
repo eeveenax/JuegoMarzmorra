@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 import com.eve.interfaces.Observer;
@@ -191,15 +192,18 @@ public class GestorJuego {
             turnos += p.getNombre() + " ";
         }
         setNTurno("Orden de turnos: " + turnos);
-        for (Personaje p : this.personajes) {
-            this.notifyObservers();
-            if (p instanceof Protagonista) {
-                realizarAccionProta(teclaPresionada);
-            } else {
-                Enemigo enemigo = (Enemigo) p;
-                realizarAccionEnemigo(enemigo);
+        ArrayList<Personaje> copiaPersonajes = new ArrayList<>(this.personajes);
+        for (Personaje p : copiaPersonajes) {
+            if (this.personajes.contains(p)) {
+                if (p instanceof Protagonista) {
+                    realizarAccionProta(teclaPresionada);
+                } else {
+                    Enemigo enemigo = (Enemigo) p;
+                    realizarAccionEnemigo(enemigo);
+                }
             }
         }
+        notifyObservers();
     }
 
     public void realizarAccionEnemigo(Enemigo enemigo) {

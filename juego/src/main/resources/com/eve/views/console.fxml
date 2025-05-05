@@ -4,19 +4,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.eve.controllers.ConsoleController">
+<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eve.controllers.ConsoleController">
    <children>
-      <VBox fx:id="vBox"
-            prefHeight="200.0" prefWidth="100.0"
-            alignment="CENTER"
-            spacing="10.0"
-            AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
-            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <VBox fx:id="vBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="Lmensaje" text="Mensaje" textAlignment="CENTER" alignment="CENTER"/>
-            <Label fx:id="Lturnos" text="" textAlignment="CENTER" alignment="CENTER"/>
+            <Label fx:id="Lmensaje" alignment="CENTER" style="-fx-font-size: 12;" text="Mensaje" textAlignment="CENTER" />
+            <Label fx:id="Lturnos" alignment="CENTER" text="" textAlignment="CENTER" />
          </children>
       </VBox>
    </children>
