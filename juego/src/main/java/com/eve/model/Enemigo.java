@@ -47,7 +47,8 @@ public class Enemigo extends Personaje {
     }
 
     /**
-     * Getter de la percepción
+     * Getter de la percepción. Según la percepción, si el enemigo detecta al prota,
+     * este va a por él, si no se mueve de forma aleatoria.
      * 
      * @return la percepción del enemigo, para detectar al protagonista e ir hace
      *         él/ella
@@ -66,6 +67,8 @@ public class Enemigo extends Personaje {
     }
 
     /**
+     * Getter de la experiencia que le dan al prota cuando se mueve, así el prota
+     * puede subir de nivel y enfrentarse a enemigos más tochos.
      * 
      * @return xpDan: experiencia que dan
      */
@@ -78,7 +81,8 @@ public class Enemigo extends Personaje {
     }
 
     /**
-     * Vida que dan
+     * Vida que dan al prota al morirse, para que este tenga menos dificultades en
+     * las próximas luchas
      * 
      * @return vidaDan
      */
@@ -91,7 +95,8 @@ public class Enemigo extends Personaje {
     }
 
     /**
-     * Getter de la denfesa que le dan al prota cuando se muere
+     * Getter de la denfesa que le dan al prota cuando se muere, así el prota está
+     * más protegido.
      * 
      * @return defensaDan
      */
@@ -104,7 +109,8 @@ public class Enemigo extends Personaje {
     }
 
     /**
-     * Getter de la fuerza que le dan al prota cuando se muere
+     * Getter de la fuerza que le dan al prota cuando se muere, de esta forma, el
+     * prota puede enfrentarse a enemigos más poderosos.
      * 
      * @return fuerzaDan
      */

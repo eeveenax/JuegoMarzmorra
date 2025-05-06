@@ -41,7 +41,7 @@ public class GestorJuego {
     }
 
     /**
-     * Escenario
+     * Escenario del juego
      * 
      * @return escenario
      */
@@ -55,7 +55,7 @@ public class GestorJuego {
     }
 
     /**
-     * Lista de personajes
+     * Lista de personajes dle juego
      * 
      * @return personajes
      */
@@ -73,7 +73,8 @@ public class GestorJuego {
     }
 
     /**
-     * Mensaje para la <<consola>>
+     * Mensaje para la vista y controlador <<consola>>, para saber si se mata a un
+     * enemigo y a cual
      * 
      * @return evento
      */
@@ -82,7 +83,7 @@ public class GestorJuego {
     }
 
     /**
-     * Método para cambiar el mensaje de los turnos
+     * Método para obtener y exponer el mensaje de los turnos
      * 
      * @return nTurno
      */

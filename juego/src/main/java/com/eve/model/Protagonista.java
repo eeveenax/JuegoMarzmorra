@@ -52,6 +52,11 @@ public class Protagonista extends Personaje {
         this.tipoJugador = tipoJugador;
     }
 
+    /**
+     * Nivel de experiencia de los protagonistas.
+     * 
+     * @return nivel
+     */
     public int getNivel() {
         return this.nivel;
     }
@@ -74,7 +79,8 @@ public class Protagonista extends Personaje {
     }
 
     /**
-     * Expericencia de los personajes
+     * Expericencia de los personajes, aumenta cuando matan a los enemigos para que
+     * estos puedan subir de nivel
      * 
      * @return xp
      */
@@ -116,7 +122,7 @@ public class Protagonista extends Personaje {
     }
 
     /**
-     * Tipo de jugador del prota
+     * Tipo de jugador del prota, según este, las estadísticas del prota varían
      * 
      * @return tipoJugador
      */

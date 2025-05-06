@@ -132,6 +132,12 @@ public class MainController {
         });
     }
 
+    /**
+     * Método privado para comprobar el nombre. Si este no es introducido, el
+     * jugador no puede continuar con el juego.
+     * 
+     * @return true o false
+     */
     private boolean comprobarNombre() {
         String nombre = Tnombre.getText();
         if (nombre.isEmpty())
@@ -140,6 +146,12 @@ public class MainController {
             return true;
     }
 
+    /**
+     * Método privado para comprobar el rol. Si este no es introducido, el
+     * jugador no puede continuar con el juego.
+     * 
+     * @return true o false
+     */
     private boolean comprobarRol() {
         String rol = splitMenuButton.getText();
         if (rol.equals("Seleccionar Rol"))

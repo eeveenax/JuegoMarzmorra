@@ -89,7 +89,8 @@ public abstract class Personaje implements Comparable {
     }
 
     /**
-     * Defensa de los personajes
+     * Defensa de los personajes, la defensa del prota
+     * aumenta cuando matan a los enemigos
      * 
      * @return defensa
      */
@@ -102,7 +103,8 @@ public abstract class Personaje implements Comparable {
     }
 
     /**
-     * Velocidad de los personajes
+     * Velocidad de los personajes, según esta, los personajes se ordenan y se
+     * establecen los turnos de movimiento.
      * 
      * @return velocidad
      */

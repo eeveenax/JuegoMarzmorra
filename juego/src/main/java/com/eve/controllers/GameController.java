@@ -175,6 +175,12 @@ public class GameController implements Observer {
 
     }
 
+    /**
+     * Método para establecer el final o no del juego. Si se llega al final del
+     * juego, aparece un VBox con un botón para reiniciar el juego.
+     * 
+     * @return finaljuego en true o false.
+     */
     public boolean finalJuego() {
         boolean finalJuego = false;
         Protagonista prota = Proveedor.getInstance().getGestorJuego().buscarProta();
