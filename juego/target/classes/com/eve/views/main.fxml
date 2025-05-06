@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,8 +18,18 @@
    <children>
       <HBox fx:id="hBox" alignment="CENTER" spacing="75.0">
          <children>
+            <ImageView fx:id="ojo1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ojito.gif" />
+               </image>
+            </ImageView>
             <ImageView fx:id="imageChica" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imageChico" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ojo2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ojito.gif" />
+               </image>
+            </ImageView>
          </children>
          <VBox.margin>
             <Insets top="30.0" />
@@ -59,7 +70,10 @@
                   <Label fx:id="Lvelocidad2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <Button fx:id="button" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="ENTRAR" /> 
+            <Button fx:id="button" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="ENTRAR">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin></Button> 
                </children>
          <VBox.margin>
             <Insets top="30.0" />
