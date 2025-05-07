@@ -26,7 +26,7 @@ public abstract class Personaje implements Comparable {
      * Constructor parametrizado de los personajes
      * 
      * @param imagen            del personaje, enemigo o prota
-     * @param nombredel         personaje, enemigo o prota
+     * @param nombre            del personaje, enemigo o prota
      * @param puntosvida        del personaje, enemigo o prota
      * @param porcentajeCritico del personaje, enemigo o prota
      * @param fuerza            del personaje, enemigo o prota
