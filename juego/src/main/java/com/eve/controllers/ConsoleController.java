@@ -49,7 +49,7 @@ public class ConsoleController implements Observer {
         else
             Lmensaje.setText(
                     "Usa las flechas o las teclas W(arriba), A(izquierda), S(abajo) y D(derecha) para moverte."
-                            + "\nAtaca enemigos." +
+                            + "\nMúevete hacia los enemigos para quitarles vida hasta matarlos." +
                             "\nNo te choques con las paredes, porfi.");
 
         if (nTurno != null && !nTurno.isEmpty())

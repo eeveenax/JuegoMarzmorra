@@ -636,9 +636,9 @@ public class GestorJuego {
     public int calcularNivelPorXP(int xp) {
         if (xp >= 4000)
             return 5;
-        if (xp >= 2600 && xp < 4000)
+        if (xp >= 1700 && xp < 4000)
             return 4;
-        if (xp >= 1200 && xp < 2600)
+        if (xp >= 1200 && xp < 1700)
             return 3;
         if (xp >= 500 && xp < 1200)
             return 2;

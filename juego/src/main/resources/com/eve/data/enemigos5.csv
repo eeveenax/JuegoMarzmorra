@@ -1,11 +1,11 @@
 imagen,nombreEnemigo,puntosVida,porcentajeCritico,fuerza,defensa,xpDan,vidaDan,velocidad,percepcion,defensaDan,fuerzaDan,id
 imagenEA1,a1,20,10,10,4,25,4,20,2,5,5,28
-imagenEB1,b1,300,20,60,10,200,6,40,4,8,8,29
-imagenEC1,c1,600,40,200,80,300,6,60,6,10,10,30
+imagenEB1,b1,300,20,60,10,100,6,40,4,8,8,29
+imagenEC1,c1,600,40,200,80,200,6,60,6,10,10,30
 imagenEA2,a2,20,10,8,10,75,4,20,2,5,5,31
-imagenEB2,b2,300,20,60,20,250,6,40,4,8,8,32
-imagenEC2,c2,600,40,200,80,350,6,60,6,10,10,33
+imagenEB2,b2,300,20,60,20,150,6,40,4,8,8,32
+imagenEC2,c2,600,40,200,80,250,6,60,6,10,10,33
 imagenEA3,a3,20,10,12,6,150,2,20,2,5,5,34
-imagenEB3,b3,300,20,60,20,300,4,40,4,8,8,35
-imagenEC3,c3,600,40,200,80,400,10,60,6,10,10,36
+imagenEB3,b3,300,20,60,20,100,4,40,4,8,8,35
+imagenEC3,c3,600,40,200,80,200,10,60,6,10,10,36
 imagenMainBoss,mainBoss,1000,60,300,100,0,0,90,6,0,0,37
