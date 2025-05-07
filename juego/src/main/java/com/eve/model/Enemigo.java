@@ -58,7 +58,9 @@ public class Enemigo extends Personaje {
     }
 
     /**
-     * Setter de la percepción
+     * Setter de la percepción, para establecer la percepción de los enemigos. Según
+     * esta, si detectana al prota en su rango de percepcion, van a por él/ella y
+     * le ataca.
      * 
      * @param percepcion
      */
@@ -76,6 +78,12 @@ public class Enemigo extends Personaje {
         return this.xpDan;
     }
 
+    /**
+     * Método para establecer la experiencia que dan los enemigos al prota al morir.
+     * 
+     * @param xpDan
+     */
+
     public void setXpDan(int xpDan) {
         this.xpDan = xpDan;
     }
@@ -90,6 +98,12 @@ public class Enemigo extends Personaje {
         return this.vidaDan;
     }
 
+    /**
+     * Método para establecer la vida que dan los enemigos al prota al
+     * morir.
+     * 
+     * @param vidaDan
+     */
     public void setVidaDan(int vidaDan) {
         this.vidaDan = vidaDan;
     }
@@ -104,6 +118,11 @@ public class Enemigo extends Personaje {
         return this.defensaDan;
     }
 
+    /**
+     * Método para establecer la defensa que dan los enemigos al prota al morir.
+     * 
+     * @param defensaDan
+     */
     public void setDefensaDan(int defensaDan) {
         this.defensaDan = defensaDan;
     }
@@ -118,6 +137,11 @@ public class Enemigo extends Personaje {
         return this.fuerzaDan;
     }
 
+    /**
+     * Método para establecer la fuerza que dan los enemigos al prota al morir.
+     * 
+     * @param fuerzaDan
+     */
     public void setFuerzaDan(int fuerzaDan) {
         this.fuerzaDan = fuerzaDan;
     }

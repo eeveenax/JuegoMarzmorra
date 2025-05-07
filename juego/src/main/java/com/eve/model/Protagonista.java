@@ -25,15 +25,10 @@ public class Protagonista extends Personaje {
      * Contructor de la clase Protagonista
      * 
      * @param nombre            del personaje protagonista
-     * @param puntosvida
-     * @param porcentajeCritico
-     * @param fuerza
-     * @param defensa
-     * @param velocidad *
-     * @param puntosvida        de los enemigos
-     * @param porcentajeCritico para que hagan más daño de forma aleatoria
-     * @param fuerza            con la que pegan los enemigos
-     * @param defensa           o escudo de los enemigos
+     * @param puntosvida        del personaje protagonista
+     * @param porcentajeCritico del personaje protagonista
+     * @param fuerza            del personaje protagonista
+     * @param defensa           del personaje protagonista
      * @param velocidad         de movimiento, establece el orden de peferencia de
      *                          movimiento
      * @param tipoJugador       Tipo del jugador, según este se determinan sus
@@ -61,6 +56,12 @@ public class Protagonista extends Personaje {
         return this.nivel;
     }
 
+    /**
+     * Método para establecer el nivel del prota
+     * 
+     * @param nivel
+     */
+
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
@@ -73,6 +74,13 @@ public class Protagonista extends Personaje {
     public int getMuertes() {
         return this.muertes;
     }
+
+    /**
+     * Método para establecer el número de enemigos a los que mata el prota
+     * (muertes).
+     * 
+     * @param muertes
+     */
 
     public void setMuertes(int muertes) {
         this.muertes = muertes;
@@ -89,6 +97,11 @@ public class Protagonista extends Personaje {
         return this.xp;
     }
 
+    /**
+     * Método para establecer la cantidad de experiencia del prota
+     * 
+     * @param xp
+     */
     public void setXp(int xp) {
         this.xp = xp;
     }
@@ -103,6 +116,11 @@ public class Protagonista extends Personaje {
         return this.protaChico;
     }
 
+    /**
+     * Método para establecer la imagen del prota cuando se selecciona un chico
+     * 
+     * @param protaChico
+     */
     public void setProtaChico(String protaChico) {
         this.protaChico = protaChico;
     }
@@ -117,6 +135,11 @@ public class Protagonista extends Personaje {
         return this.protaChica;
     }
 
+    /**
+     * Método para establecer la imagen del prota cuando se selecciona un chico
+     * 
+     * @param protaChica
+     */
     public void setProtaChica(String protaChica) {
         this.protaChica = protaChica;
     }
@@ -130,6 +153,12 @@ public class Protagonista extends Personaje {
         return this.tipoJugador;
     }
 
+    /**
+     * Método para establecer el tipo de jugador que es el prota, en base a un enum,
+     * para obtener las estadistcias, las cuales difieren entre roles.
+     * 
+     * @param tipoJugador
+     */
     public void setTipoJugador(String tipoJugador) {
         this.tipoJugador = tipoJugador;
     }

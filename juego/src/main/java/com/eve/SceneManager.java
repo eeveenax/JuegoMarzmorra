@@ -138,7 +138,7 @@ public class SceneManager {
      * 
      * @param sceneID identificador único de la escena, guardados en el mapa de
      *                escenas con su escena asociada.
-     * @return
+     * @return las escenas o nulo
      */
     @SuppressWarnings("exports")
     public Scene getScene(SceneID sceneID) {

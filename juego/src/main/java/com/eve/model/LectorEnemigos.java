@@ -33,7 +33,6 @@ public class LectorEnemigos {
      * 
      * @param ficheroEntrada
      * @return una lista de los enemigos con sus datos
-     * @throws Exception
      */
 
     public ArrayList<Personaje> leerCSV(File ficheroEntrada) throws Exception {

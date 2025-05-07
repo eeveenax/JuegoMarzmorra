@@ -25,14 +25,14 @@ public abstract class Personaje implements Comparable {
     /**
      * Constructor parametrizado de los personajes
      * 
-     * @param imagen
-     * @param nombre
-     * @param puntosvida
-     * @param porcentajeCritico
-     * @param fuerza
-     * @param defensa
-     * @param velocidad
-     * @param id
+     * @param imagen            del personaje, enemigo o prota
+     * @param nombredel         personaje, enemigo o prota
+     * @param puntosvida        del personaje, enemigo o prota
+     * @param porcentajeCritico del personaje, enemigo o prota
+     * @param fuerza            del personaje, enemigo o prota
+     * @param defensa           del personaje, enemigo o prota
+     * @param velocidad         del personaje, enemigo o prota
+     * @param id                del personaje, enemigo o prota
      */
     public Personaje(String imagen, String nombre, int puntosvida, int porcentajeCritico, int fuerza, int defensa,
             int velocidad, int id) {
@@ -57,6 +57,11 @@ public abstract class Personaje implements Comparable {
         return this.puntosvida;
     }
 
+    /**
+     * Método para establecer los puntos de vida del personaje
+     * 
+     * @param puntosvida
+     */
     public void setPuntosvida(int puntosvida) {
         this.puntosvida = puntosvida;
     }
@@ -71,6 +76,14 @@ public abstract class Personaje implements Comparable {
         return this.porcentajeCritico;
     }
 
+    /**
+     * Método para establecer el porcentaje crítico de los personajes, según este
+     * porcentaje, harán más o menos daño si el resultado obtenido a partir de un
+     * random cumple con la probabilidad establecida en el porcentaje critico de que
+     * su fuerza aumente.
+     * 
+     * @param danio
+     */
     public void setPorcentajeCritico(int danio) {
         this.porcentajeCritico = danio;
     }
@@ -84,6 +97,11 @@ public abstract class Personaje implements Comparable {
         return this.fuerza;
     }
 
+    /**
+     * Método para establecer la fuerza de los personajes
+     * 
+     * @param fuerza
+     */
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
     }
@@ -98,6 +116,11 @@ public abstract class Personaje implements Comparable {
         return this.defensa;
     }
 
+    /**
+     * Método para establecer la defensa de los personajes
+     * 
+     * @param defensa
+     */
     public void setDefensa(int defensa) {
         this.defensa = defensa;
     }
@@ -112,6 +135,11 @@ public abstract class Personaje implements Comparable {
         return this.velocidad;
     }
 
+    /**
+     * Método para establecer la velocidad de los personajes
+     * 
+     * @param velocidad
+     */
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
@@ -125,10 +153,11 @@ public abstract class Personaje implements Comparable {
         return this.nombre;
     }
 
-    public void setVelocidad(String nombre) {
-        this.nombre = nombre;
-    }
-
+    /**
+     * Método para darle nombre a los personajes
+     * 
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -143,6 +172,11 @@ public abstract class Personaje implements Comparable {
         return this.imagen;
     }
 
+    /**
+     * Método para darle una imagen a los personajes
+     * 
+     * @param imagen
+     */
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
@@ -157,6 +191,11 @@ public abstract class Personaje implements Comparable {
         return this.posicion;
     }
 
+    /**
+     * Método para darle posicion a los personajes
+     * 
+     * @param posicion
+     */
     public void setPosicion(int[] posicion) {
         this.posicion = posicion;
     }
@@ -171,16 +210,37 @@ public abstract class Personaje implements Comparable {
         return this.id;
     }
 
+    /**
+     * Método para darle un id a los personajes
+     * 
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
-    // Método para mover a los personajes, que serán sobreescritos en cada tipo de
-    // personaje.
+    /**
+     * Método para mover a los personajes. Reciben la nueva posición (fila, columna)
+     * y el escenario, para moverlos a esa nueva posición en el escenario
+     * 
+     * @param nuevaFila
+     * @param nuevaCol
+     * @param escenario
+     */
     public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
 
     }
 
+    /**
+     * Método para atacar a los personajes. Reciben la nueva posición (fila,
+     * columna)
+     * y el escenario, para atacar al personaje de esa nueva posición en el
+     * escenario
+     * 
+     * @param nuevaFila
+     * @param nuevaCol
+     * @param escenario
+     */
     public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
 
     }

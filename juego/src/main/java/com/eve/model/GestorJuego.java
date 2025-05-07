@@ -50,12 +50,17 @@ public class GestorJuego {
         return this.escenario;
     }
 
+    /**
+     * Método para establecer el escenario del juego
+     * 
+     * @param escenario
+     */
     public void setEscenario(Escenario escenario) {
         this.escenario = escenario;
     }
 
     /**
-     * Lista de personajes dle juego
+     * Método para conseguir la lista de personajes del juego
      * 
      * @return personajes
      */
@@ -64,17 +69,32 @@ public class GestorJuego {
         return this.personajes;
     }
 
+    /**
+     * Método para establecer la lista de personajes del juego.
+     * 
+     * @param personajes
+     */
+
     public void setPersonajes(ArrayList<Personaje> personajes) {
         this.personajes = personajes;
     }
 
+    /**
+     * Método para estabelcer el mensaje en consola, viendo así los turnos de los
+     * personajes y las estadísticas de un enemigo asesinado, si se mata a un
+     * enemigo.
+     * 
+     * @param evento
+     */
     public void setEvento(String evento) {
         this.evento = evento;
     }
 
     /**
-     * Mensaje para la vista y controlador <<consola>>, para saber si se mata a un
-     * enemigo y a cual
+     * Método para conseguir el mensaje para la vista y controlador <i>consola</i>,
+     * para saber si se mata a
+     * un
+     * enemigo, a cual y los turnos de los personajes
      * 
      * @return evento
      */
@@ -91,6 +111,11 @@ public class GestorJuego {
         return this.nTurno;
     }
 
+    /**
+     * Método para establecer el mensaje de turnos de los personajes.
+     * 
+     * @param nTurno
+     */
     public void setNTurno(String nTurno) {
         this.nTurno = nTurno;
     }
@@ -137,14 +162,31 @@ public class GestorJuego {
         return this.observers;
     }
 
+    /**
+     * Método para establecer los observadores del juego
+     * 
+     * @param observers
+     */
     public void setObservers(ArrayList<Observer> observers) {
         this.observers = observers;
     }
 
+    /**
+     * Método para suscribir a los observadores a la lista de observadores, así
+     * cuando haya un cambio estarán a ala escucha y se reflejará el cambio
+     * 
+     * @param observer
+     */
     public void subscribe(Observer observer) {
         observers.add(observer);
     }
 
+    /**
+     * Método para desuscribir a los observadores a la lista de observadores, así
+     * dejarán de estar a la escuchca de los cambios.
+     * 
+     * @param observer
+     */
     public void unsubscribe(Observer observer) {
         observers.remove(observer);
     }
@@ -164,12 +206,19 @@ public class GestorJuego {
         return this.lectorEnemigo;
     }
 
+    /**
+     * Método para establecer el lector de enemigos.
+     * 
+     * @param lectorEnemigo
+     */
+
     public void setLectorEnemigo(LectorEnemigos lectorEnemigo) {
         this.lectorEnemigo = lectorEnemigo;
     }
 
     /**
-     * Mapa de rutas por niveles para el lector de los Enemigos
+     * Método para consegir el mapa de rutas por niveles para el lector de los
+     * Enemigos
      * 
      * @return enemigos
      */
@@ -177,15 +226,21 @@ public class GestorJuego {
         return this.enemigos;
     }
 
+    /**
+     * Método para establecer el mapa de rutas por niveles para el lector de los
+     * 
+     * @param enemigos
+     */
     public void setEnemigos(HashMap<String, String> enemigos) {
         this.enemigos = enemigos;
     }
 
-    public void reconstruirEscenario(String ficheroEscenario) {
-        this.escenario.setEscenario(ficheroEscenario);
-
-    }
-
+    /**
+     * Método para establcer los turnos. La teclaPresionada se guarda para que el
+     * prota en su turno sepa hacia donde moverse.
+     * 
+     * @param teclaPresionada
+     */
     public void turno(String teclaPresionada) {
         String turnos = "";
         for (Personaje p : this.personajes) {
@@ -206,6 +261,12 @@ public class GestorJuego {
         notifyObservers();
     }
 
+    /**
+     * Método para que el enemigo que se recibe por parámetro relalice su accion
+     * (mover o atacar) correspondiente.
+     * 
+     * @param enemigo
+     */
     public void realizarAccionEnemigo(Enemigo enemigo) {
         Random r = new Random();
         int[] posicionProta = buscarProta().getPosicion();
@@ -372,6 +433,16 @@ public class GestorJuego {
         }
     }
 
+    /**
+     * Método para que el prota realice su acción (mover o atacar) correspondiente
+     * en base a la tecla presionada.
+     * Con esta tecla se decide si el prota se mueve (porque la casilla nueva es un
+     * suelo vacío) o
+     * ataca.
+     * 
+     * @param teclaPresionada
+     */
+
     public void realizarAccionProta(String teclaPresionada) {
         Protagonista prota = buscarProta();
         String[][] escenario = this.escenario.getEscenario();
@@ -433,6 +504,18 @@ public class GestorJuego {
         }
     }
 
+    /**
+     * Método para comprobar si la acción (mover o atacar) se puede llevar a cabo.
+     * En el caso de los enemigos, si pueden moverse o atacar, ya sea a partir de la
+     * percecpión (se mueve hacia el prota) o de forma aleatoria.
+     * En el caso del prota, si en base a la tecla presionada se pueden mover o no,
+     * así como atacar o no (según si hay un enemigo en la "nueva posición").
+     * 
+     * @param posiciones en las que esta el protagonista
+     * @param movimiento dirección a la que moverse
+     * @return la acción a realizar.
+     *         Este método es reutilizable en ambos personajes (enemigos y prota).
+     */
     public String comprobarAccion(int[] posiciones, String movimiento) {
         String[][] escenario = this.escenario.getEscenario();
         String accion = "";
@@ -516,9 +599,12 @@ public class GestorJuego {
 
     }
 
-    /*
+    /**
+     * Método para cambiar a los enemigos cuando el prota sube de nivel
      * Si tuvieramos más escenarios, habría que pasarle la ruta del escenario para
      * que se lea en setEscenario
+     *
+     * @param nivel
      */
     public void nuevosEnemigos(String nivel) {
         Protagonista protagonista = buscarProta();
@@ -537,6 +623,13 @@ public class GestorJuego {
         }
     }
 
+    /**
+     * Método para saber si el prota tiene suficiente experiecnia para subir o no
+     * de nivel.
+     * 
+     * @param xp
+     * @return el número del nivel de que corresponde en base a su experiencia
+     */
     public int calcularNivelPorXP(int xp) {
         if (xp >= 4000)
             return 5;

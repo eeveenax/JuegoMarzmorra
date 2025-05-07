@@ -41,6 +41,12 @@ public class ProtasEstadisticas {
         return this.estadisticas;
     }
 
+    /**
+     * Método para establecer las estadísticas del prota
+     * 
+     * @param estadisticas
+     */
+
     public void setEstadisticas(HashMap<String, HashMap<String, Integer>> estadisticas) {
         this.estadisticas = estadisticas;
     }
