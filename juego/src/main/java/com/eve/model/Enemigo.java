@@ -147,16 +147,6 @@ public class Enemigo extends Personaje {
     }
 
     @Override
-    public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
-        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
-        int[] pos = this.getPosicion();
-        escenario[pos[0]][pos[1]] = "s";
-        this.setPosicion(new int[] { nuevaFila, nuevaCol });
-        escenario[nuevaFila][nuevaCol] = "" + this.id;
-        gestor.notifyObservers();
-    }
-
-    @Override
     public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
         Random r = new Random();
         GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
