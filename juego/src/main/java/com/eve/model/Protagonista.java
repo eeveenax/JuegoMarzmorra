@@ -59,7 +59,7 @@ public class Protagonista extends Personaje {
     /**
      * Método para establecer el nivel del prota
      * 
-     * @param nivel
+     * @param nivel del prota
      */
 
     public void setNivel(int nivel) {
@@ -79,7 +79,7 @@ public class Protagonista extends Personaje {
      * Método para establecer el número de enemigos a los que mata el prota
      * (muertes).
      * 
-     * @param muertes
+     * @param muertes número de muertes del prota de los enemigos
      */
 
     public void setMuertes(int muertes) {
@@ -100,7 +100,7 @@ public class Protagonista extends Personaje {
     /**
      * Método para establecer la cantidad de experiencia del prota
      * 
-     * @param xp
+     * @param xp del prota.
      */
     public void setXp(int xp) {
         this.xp = xp;
@@ -119,7 +119,7 @@ public class Protagonista extends Personaje {
     /**
      * Método para establecer la imagen del prota cuando se selecciona un chico
      * 
-     * @param protaChico
+     * @param protaChico imagen del prota chico.
      */
     public void setProtaChico(String protaChico) {
         this.protaChico = protaChico;
@@ -138,7 +138,7 @@ public class Protagonista extends Personaje {
     /**
      * Método para establecer la imagen del prota cuando se selecciona un chico
      * 
-     * @param protaChica
+     * @param protaChica imagen de la prota chica.
      */
     public void setProtaChica(String protaChica) {
         this.protaChica = protaChica;
@@ -157,7 +157,8 @@ public class Protagonista extends Personaje {
      * Método para establecer el tipo de jugador que es el prota, en base a un enum,
      * para obtener las estadistcias, las cuales difieren entre roles.
      * 
-     * @param tipoJugador
+     * @param tipoJugador rol del jugador. Según el rol, el prota tendrá unas u
+     *                    otras estadísticas.
      */
     public void setTipoJugador(String tipoJugador) {
         this.tipoJugador = tipoJugador;

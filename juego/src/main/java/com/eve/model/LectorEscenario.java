@@ -71,7 +71,7 @@ public class LectorEscenario {
      * Método para establecer el escenario, que se rellenará con los datos del
      * lector y se usará para crear el escenario del juego
      * 
-     * @param escenario
+     * @param escenario del juego.
      */
 
     public void setEscenario(String[][] escenario) {
@@ -91,7 +91,7 @@ public class LectorEscenario {
     /**
      * Método para establecer el número de filas del escenario
      * 
-     * @param numFilas
+     * @param numFilas del escenario.
      */
     public void setNumFilas(int numFilas) {
         this.numFilas = numFilas;
@@ -109,7 +109,7 @@ public class LectorEscenario {
     /**
      * Método para establecer el número de columnas del escenario
      * 
-     * @param numColumnas
+     * @param numColumnas del escenario.
      */
     public void setNumColumnas(int numColumnas) {
         this.numColumnas = numColumnas;

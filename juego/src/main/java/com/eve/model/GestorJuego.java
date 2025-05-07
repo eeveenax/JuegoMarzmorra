@@ -53,7 +53,7 @@ public class GestorJuego {
     /**
      * Método para establecer el escenario del juego
      * 
-     * @param escenario
+     * @param escenario para establecer el escenario del juego
      */
     public void setEscenario(Escenario escenario) {
         this.escenario = escenario;
@@ -72,7 +72,8 @@ public class GestorJuego {
     /**
      * Método para establecer la lista de personajes del juego.
      * 
-     * @param personajes
+     * @param personajes lista de personajes
+     * 
      */
 
     public void setPersonajes(ArrayList<Personaje> personajes) {
@@ -84,7 +85,7 @@ public class GestorJuego {
      * personajes y las estadísticas de un enemigo asesinado, si se mata a un
      * enemigo.
      * 
-     * @param evento
+     * @param evento mensaje que aparecerán en la vista consola
      */
     public void setEvento(String evento) {
         this.evento = evento;
@@ -114,7 +115,7 @@ public class GestorJuego {
     /**
      * Método para establecer el mensaje de turnos de los personajes.
      * 
-     * @param nTurno
+     * @param nTurno mensaje sobre los turnos
      */
     public void setNTurno(String nTurno) {
         this.nTurno = nTurno;
@@ -141,7 +142,7 @@ public class GestorJuego {
      * Método para buscar de forma más sencilla a un enemigo, para obtener sus datos
      * cuando el prota le ataca.
      * 
-     * @param id
+     * @param id del enemigo que se busca
      * @return enemigo por ID buscado
      */
     public Enemigo buscarEnemigo(int id) {
@@ -165,7 +166,7 @@ public class GestorJuego {
     /**
      * Método para establecer los observadores del juego
      * 
-     * @param observers
+     * @param observers lista de los observadores del juego.
      */
     public void setObservers(ArrayList<Observer> observers) {
         this.observers = observers;
@@ -175,7 +176,7 @@ public class GestorJuego {
      * Método para suscribir a los observadores a la lista de observadores, así
      * cuando haya un cambio estarán a ala escucha y se reflejará el cambio
      * 
-     * @param observer
+     * @param observer que se suscribe
      */
     public void subscribe(Observer observer) {
         observers.add(observer);
@@ -185,7 +186,7 @@ public class GestorJuego {
      * Método para desuscribir a los observadores a la lista de observadores, así
      * dejarán de estar a la escuchca de los cambios.
      * 
-     * @param observer
+     * @param observer que se desuscribe
      */
     public void unsubscribe(Observer observer) {
         observers.remove(observer);
@@ -209,7 +210,7 @@ public class GestorJuego {
     /**
      * Método para establecer el lector de enemigos.
      * 
-     * @param lectorEnemigo
+     * @param lectorEnemigo para leer el fichero de los enemigos
      */
 
     public void setLectorEnemigo(LectorEnemigos lectorEnemigo) {
@@ -229,7 +230,8 @@ public class GestorJuego {
     /**
      * Método para establecer el mapa de rutas por niveles para el lector de los
      * 
-     * @param enemigos
+     * @param enemigos mapa de los enemigos (nivel del prota, ruta al fichero de los
+     *                 enemigos a leer)
      */
     public void setEnemigos(HashMap<String, String> enemigos) {
         this.enemigos = enemigos;
@@ -239,7 +241,7 @@ public class GestorJuego {
      * Método para establcer los turnos. La teclaPresionada se guarda para que el
      * prota en su turno sepa hacia donde moverse.
      * 
-     * @param teclaPresionada
+     * @param teclaPresionada dirección de movimiento del prota
      */
     public void turno(String teclaPresionada) {
         String turnos = "";
@@ -265,7 +267,7 @@ public class GestorJuego {
      * Método para que el enemigo que se recibe por parámetro relalice su accion
      * (mover o atacar) correspondiente.
      * 
-     * @param enemigo
+     * @param enemigo que debe realizar una acción
      */
     public void realizarAccionEnemigo(Enemigo enemigo) {
         Random r = new Random();
@@ -440,7 +442,7 @@ public class GestorJuego {
      * suelo vacío) o
      * ataca.
      * 
-     * @param teclaPresionada
+     * @param teclaPresionada dirección que debe tomar el prota.
      */
 
     public void realizarAccionProta(String teclaPresionada) {
@@ -604,7 +606,8 @@ public class GestorJuego {
      * Si tuvieramos más escenarios, habría que pasarle la ruta del escenario para
      * que se lea en setEscenario
      *
-     * @param nivel
+     * @param nivel del prota
+     * 
      */
     public void nuevosEnemigos(String nivel) {
         Protagonista protagonista = buscarProta();
@@ -627,7 +630,7 @@ public class GestorJuego {
      * Método para saber si el prota tiene suficiente experiecnia para subir o no
      * de nivel.
      * 
-     * @param xp
+     * @param xp del prota
      * @return el número del nivel de que corresponde en base a su experiencia
      */
     public int calcularNivelPorXP(int xp) {

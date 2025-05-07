@@ -44,7 +44,7 @@ public class ProtasEstadisticas {
     /**
      * Método para establecer las estadísticas del prota
      * 
-     * @param estadisticas
+     * @param estadisticas de los protas según el rol
      */
 
     public void setEstadisticas(HashMap<String, HashMap<String, Integer>> estadisticas) {

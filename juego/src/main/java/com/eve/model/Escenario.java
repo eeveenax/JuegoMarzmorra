@@ -30,7 +30,8 @@ public class Escenario {
     /**
      * Método para leer el csv del esceanrio y rellenar la matriz
      * 
-     * @param fileName
+     * @param fileName del archivo que se lee para conseguir la estructura del
+     *                 escenario
      */
     public void setEscenario(String fileName) {
         LectorEscenario lector = new LectorEscenario();

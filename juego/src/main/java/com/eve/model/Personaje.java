@@ -60,7 +60,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para establecer los puntos de vida del personaje
      * 
-     * @param puntosvida
+     * @param puntosvida del personaje.
      */
     public void setPuntosvida(int puntosvida) {
         this.puntosvida = puntosvida;
@@ -82,7 +82,8 @@ public abstract class Personaje implements Comparable {
      * random cumple con la probabilidad establecida en el porcentaje critico de que
      * su fuerza aumente.
      * 
-     * @param danio
+     * @param danio del personaje, establece el porcentaje de probabilidad de hacer
+     *              más daño.
      */
     public void setPorcentajeCritico(int danio) {
         this.porcentajeCritico = danio;
@@ -100,7 +101,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para establecer la fuerza de los personajes
      * 
-     * @param fuerza
+     * @param fuerza del personjae para hacer daño.
      */
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
@@ -119,7 +120,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para establecer la defensa de los personajes
      * 
-     * @param defensa
+     * @param defensa del personaje para protegerse del daño.
      */
     public void setDefensa(int defensa) {
         this.defensa = defensa;
@@ -138,7 +139,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para establecer la velocidad de los personajes
      * 
-     * @param velocidad
+     * @param velocidad del personaje, para establecer los turnos.
      */
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
@@ -156,7 +157,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para darle nombre a los personajes
      * 
-     * @param nombre
+     * @param nombre del personaje.
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -175,7 +176,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para darle una imagen a los personajes
      * 
-     * @param imagen
+     * @param imagen del personaje.
      */
     public void setImagen(String imagen) {
         this.imagen = imagen;
@@ -194,7 +195,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para darle posicion a los personajes
      * 
-     * @param posicion
+     * @param posicion del personaje, en el eje X e Y (fila, columna).
      */
     public void setPosicion(int[] posicion) {
         this.posicion = posicion;
@@ -213,7 +214,7 @@ public abstract class Personaje implements Comparable {
     /**
      * Método para darle un id a los personajes
      * 
-     * @param id
+     * @param id del personaje.
      */
     public void setId(int id) {
         this.id = id;
@@ -223,9 +224,9 @@ public abstract class Personaje implements Comparable {
      * Método para mover a los personajes. Reciben la nueva posición (fila, columna)
      * y el escenario, para moverlos a esa nueva posición en el escenario
      * 
-     * @param nuevaFila
-     * @param nuevaCol
-     * @param escenario
+     * @param nuevaFila número de fila a la que se debe mover el personaje.
+     * @param nuevaCol  número columna a la que se debe mover el personaje.
+     * @param escenario del juego.
      */
     public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
 
@@ -237,9 +238,10 @@ public abstract class Personaje implements Comparable {
      * y el escenario, para atacar al personaje de esa nueva posición en el
      * escenario
      * 
-     * @param nuevaFila
-     * @param nuevaCol
-     * @param escenario
+     * @param nuevaFila número de fila con un personaje a la que debe atacar otro.
+     * @param nuevaCol  número de columna con un personaje a la que debe atacar
+     *                  otro.
+     * @param escenario del juego.
      */
     public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
 
