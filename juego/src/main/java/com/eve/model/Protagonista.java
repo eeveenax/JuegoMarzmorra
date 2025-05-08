@@ -1,5 +1,6 @@
 package com.eve.model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -165,18 +166,6 @@ public class Protagonista extends Personaje {
     }
 
     @Override
-    public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
-        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
-        int[] pos = this.getPosicion();
-        escenario[pos[0]][pos[1]] = "s";
-        this.setPosicion(new int[] { nuevaFila, nuevaCol });
-        escenario[nuevaFila][nuevaCol] = "" + this.id;
-        gestor.setEvento("");
-
-        gestor.notifyObservers();
-    }
-
-    @Override
     public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
         Random r = new Random();
         ArrayList<Personaje> personajes = Proveedor.getInstance().getGestorJuego().getPersonajes();
@@ -207,7 +196,6 @@ public class Protagonista extends Personaje {
             this.defensa += defensaDan;
             this.muertes++;
             this.fuerza = this.fuerza + enemigo.getFuerzaDan();
-            gestor.subirNivel();
             escenario[nuevaFila][nuevaCol] = "s";
             gestor.setEvento("Enemigo Asesinado con el ID: " + enemigo.getId() + ". Recibes " + enemigo.getVidaDan()
                     + " de vida, " + enemigo.getXpDan() + " de experiencia, " + enemigo.getFuerzaDan() + " de fuerza y "
@@ -220,9 +208,159 @@ public class Protagonista extends Personaje {
                     break;
                 }
             }
+            this.subirNivel();
             gestor.notifyObservers();
         }
 
+    }
+
+    /**
+     * Método para que el prota realice su acción (mover o atacar) correspondiente
+     * en base a la tecla presionada.
+     * Con esta tecla se decide si el prota se mueve (porque la casilla nueva es un
+     * suelo vacío) o
+     * ataca.
+     * 
+     * @param teclaPresionada dirección que debe tomar el prota.
+     */
+
+    public void realizarAccionProta(String teclaPresionada) {
+        GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
+        String escenario[][] = gestorJuego.getEscenario().getEscenario();
+
+        // Escucha de teclado
+        int[] posicion = this.getPosicion();
+        String accion = comprobarAccion(this.getPosicion(), teclaPresionada);
+        switch (teclaPresionada) {
+            case "W":
+                switch (accion) {
+                    case "mover":
+                        this.moverPersonaje(posicion[0] - 1, posicion[1], escenario);
+                        break;
+                    case "atacar":
+                        this.atacarPersonaje(posicion[0] - 1, posicion[1], escenario);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "A":
+                switch (accion) {
+                    case "mover":
+                        this.moverPersonaje(posicion[0], posicion[1] - 1, escenario);
+                        break;
+                    case "atacar":
+                        this.atacarPersonaje(posicion[0], posicion[1] - 1, escenario);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "S":
+                switch (accion) {
+                    case "mover":
+                        this.moverPersonaje(posicion[0] + 1, posicion[1], escenario);
+                        break;
+                    case "atacar":
+                        this.atacarPersonaje(posicion[0] + 1, posicion[1], escenario);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "D":
+                switch (accion) {
+                    case "mover":
+                        this.moverPersonaje(posicion[0], posicion[1] + 1, escenario);
+                        break;
+                    case "atacar":
+                        this.atacarPersonaje(posicion[0], posicion[1] + 1, escenario);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void subirNivel() {
+        GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
+        int xp = this.getXp();
+        int nivelActual = this.getNivel();
+        int nuevoNivel = calcularNivelPorXP(xp);
+        boolean nivelCambio = false;
+
+        if (nuevoNivel > nivelActual) {
+            this.setNivel(nuevoNivel);
+            gestorJuego.notifyObservers();
+            nivelCambio = true;
+        }
+        if (nivelCambio) {
+            String nivelS = "";
+            switch (nuevoNivel) {
+                case 2:
+                    nivelS = gestorJuego.getEnemigos().get("nivel2");
+                    break;
+                case 3:
+                    nivelS = gestorJuego.getEnemigos().get("nivel3");
+                    break;
+                case 4:
+                    nivelS = gestorJuego.getEnemigos().get("nivel4");
+                    break;
+                case 5:
+                    nivelS = gestorJuego.getEnemigos().get("nivel5");
+                    break;
+            }
+            nuevosEnemigos(nivelS);
+        }
+
+    }
+
+    /**
+     * Método para cambiar a los enemigos cuando el prota sube de nivel
+     * Si tuvieramos más escenarios, habría que pasarle la ruta del escenario para
+     * que se lea en setEscenario
+     *
+     * @param nivel del prota
+     * 
+     */
+    public void nuevosEnemigos(String nivel) {
+        GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
+        ArrayList<Personaje> personajesNuevos = new ArrayList<>();
+        this.setPosicion(new int[] { 0, 0 });
+        try {
+            personajesNuevos.add(this);
+            personajesNuevos.addAll(gestorJuego.getLectorEnemigo().leerCSV(new File(nivel)));
+            personajesNuevos.sort(null);
+            gestorJuego.setPersonajes(personajesNuevos);
+            gestorJuego.getEscenario().setEscenario("");
+            gestorJuego.getEscenario().generarPosiciones();
+            gestorJuego.notifyObservers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Método para saber si el prota tiene suficiente experiecnia para subir o no
+     * de nivel.
+     * 
+     * @param xp del prota
+     * @return el número del nivel de que corresponde en base a su experiencia
+     */
+    public int calcularNivelPorXP(int xp) {
+        if (xp >= 4000)
+            return 5;
+        if (xp >= 1700 && xp < 4000)
+            return 4;
+        if (xp >= 1200 && xp < 1700)
+            return 3;
+        if (xp >= 500 && xp < 1200)
+            return 2;
+        return 1;
     }
 
     @Override

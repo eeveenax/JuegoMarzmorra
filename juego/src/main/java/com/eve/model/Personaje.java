@@ -229,7 +229,14 @@ public abstract class Personaje implements Comparable {
      * @param escenario del juego.
      */
     public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
+        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
+        int[] pos = this.getPosicion();
+        escenario[pos[0]][pos[1]] = "s";
+        this.setPosicion(new int[] { nuevaFila, nuevaCol });
+        escenario[nuevaFila][nuevaCol] = "" + this.id;
+        gestor.setEvento("");
 
+        gestor.notifyObservers();
     }
 
     /**
@@ -245,6 +252,69 @@ public abstract class Personaje implements Comparable {
      */
     public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
 
+    }
+
+    /**
+     * Método para comprobar si la acción (mover o atacar) se puede llevar a cabo.
+     * En el caso de los enemigos, si pueden moverse o atacar, ya sea a partir de la
+     * percecpión (se mueve hacia el prota) o de forma aleatoria.
+     * En el caso del prota, si en base a la tecla presionada se pueden mover o no,
+     * así como atacar o no (según si hay un enemigo en la "nueva posición").
+     * 
+     * @param posiciones en las que esta el protagonista
+     * @param movimiento dirección a la que moverse
+     * @return la acción a realizar.
+     *         Este método es reutilizable en ambos personajes (enemigos y prota).
+     */
+    public String comprobarAccion(int[] posiciones, String movimiento) {
+        GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
+        String[][] escenario = gestorJuego.getEscenario().getEscenario();
+        String accion = "";
+        switch (movimiento) {
+            case "W":
+                if (posiciones[0] - 1 >= 0) {
+                    if (escenario[posiciones[0] - 1][posiciones[1]].equals("s"))
+                        return "mover";
+                    else if (!escenario[posiciones[0] - 1][posiciones[1]].equals("p"))
+                        return "atacar";
+                    else
+                        return "nada";
+                }
+                break;
+            case "A":
+                if (posiciones[1] - 1 >= 0) {
+                    if (escenario[posiciones[0]][posiciones[1] - 1].equals("s"))
+                        return "mover";
+                    else if (!escenario[posiciones[0]][posiciones[1] - 1].equals("p"))
+                        return "atacar";
+                    else
+                        return "nada";
+                }
+                break;
+            case "S":
+                if (posiciones[0] + 1 < escenario.length) {
+                    if (escenario[posiciones[0] + 1][posiciones[1]].equals("s"))
+                        return "mover";
+                    else if (!escenario[posiciones[0] + 1][posiciones[1]].equals("p"))
+                        return "atacar";
+                    else
+                        return "nada";
+                }
+                break;
+            case "D":
+                if (posiciones[1] + 1 < escenario[0].length) {
+                    if (escenario[posiciones[0]][posiciones[1] + 1].equals("s"))
+                        return "mover";
+                    else if (!escenario[posiciones[0]][posiciones[1] + 1].equals("p"))
+                        return "atacar";
+                    else
+                        return "nada";
+                }
+                break;
+            default:
+                break;
+        }
+        return accion;
     }
 
     @Override

@@ -142,6 +142,27 @@ public class GameController implements Observer {
 
     }
 
+    public void pintarPersonajes() {
+        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
+        int numFilas = gestor.getEscenario().getEscenario().length;
+        int numColumnas = gestor.getEscenario().getEscenario()[0].length;
+        ArrayList<Personaje> personajes = gestor.getPersonajes();
+        double anchoDisponible = 600;
+        double altoDisponible = 600;
+        double tamcoluma = anchoDisponible / numColumnas;
+        double tamfila = altoDisponible / numFilas;
+
+        gridPane2.getChildren().clear();
+
+        for (int i = 0; i < personajes.size(); i++) {
+            ImageView imagen = new ImageView(new Image(getClass().getResourceAsStream(personajes.get(i).getImagen())));
+            imagen.setFitHeight(tamfila);
+            imagen.setFitWidth(tamcoluma);
+            imagen.setPreserveRatio(true);
+            gridPane2.add(imagen, personajes.get(i).getPosicion()[1], personajes.get(i).getPosicion()[0]);
+        }
+    }
+
     public void play() {
         GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
         vBox.setVisible(false);
@@ -208,30 +229,10 @@ public class GameController implements Observer {
         return false;
     }
 
-    public void pintarPersonajes() {
-        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
-        int numFilas = gestor.getEscenario().getEscenario().length;
-        int numColumnas = gestor.getEscenario().getEscenario()[0].length;
-        ArrayList<Personaje> personajes = gestor.getPersonajes();
-        double anchoDisponible = 600;
-        double altoDisponible = 600;
-        double tamcoluma = anchoDisponible / numColumnas;
-        double tamfila = altoDisponible / numFilas;
-
-        gridPane2.getChildren().clear();
-
-        for (int i = 0; i < personajes.size(); i++) {
-            ImageView imagen = new ImageView(new Image(getClass().getResourceAsStream(personajes.get(i).getImagen())));
-            imagen.setFitHeight(tamfila);
-            imagen.setFitWidth(tamcoluma);
-            imagen.setPreserveRatio(true);
-            gridPane2.add(imagen, personajes.get(i).getPosicion()[1], personajes.get(i).getPosicion()[0]);
-        }
-    }
-
     @Override
     public void onChange() {
         if (!finalJuego()) {
+            contruirGrid();
             pintarEscenario();
             pintarPersonajes();
         }

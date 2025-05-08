@@ -1,5 +1,8 @@
 package com.eve.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Random;
 
 /** Clase enemigo, para contruir a los enemigos */
@@ -146,14 +149,178 @@ public class Enemigo extends Personaje {
         this.fuerzaDan = fuerzaDan;
     }
 
-    @Override
-    public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
-        GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
-        int[] pos = this.getPosicion();
-        escenario[pos[0]][pos[1]] = "s";
-        this.setPosicion(new int[] { nuevaFila, nuevaCol });
-        escenario[nuevaFila][nuevaCol] = "" + this.id;
-        gestor.notifyObservers();
+    /**
+     * Método para que el enemigo que se recibe por parámetro relalice su accion
+     * (mover o atacar) correspondiente.
+     * 
+     * @param enemigo que debe realizar una acción
+     */
+    public void realizarAccionEnemigo() {
+        GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
+        String[][] escenario = gestorJuego.getEscenario().getEscenario();
+        Random r = new Random();
+        int[] posicionProta = gestorJuego.buscarProta().getPosicion();
+        int[] posicionEnemigo = this.getPosicion();
+        int percepcion = this.getPercepcion();
+        int[] posAux = new int[] { posicionEnemigo[0] - posicionProta[0], posicionEnemigo[1] - posicionProta[1] };
+        if (Math.abs(posAux[0]) <= percepcion && Math.abs(posAux[1]) <= percepcion) {
+            String[] auxX = new String[2];
+            String[] auxY = new String[2];
+            LinkedList<String> direcciones = new LinkedList<>();
+            /* Teclas a la inversa */
+            if (posAux[1] > 0) {
+                auxX = new String[] { "A", "D" };
+            } else {
+                auxX = new String[] { "D", "A" };
+            }
+            if (posAux[0] > 0) {
+                auxY = new String[] { "W", "S" };
+            } else {
+                auxY = new String[] { "S", "W" };
+            }
+            if (posAux[1] == 0) {
+                direcciones.add(auxY[0]);
+                direcciones.add(auxX[0]);
+                direcciones.add(auxY[1]);
+                direcciones.add(auxX[1]);
+            } else if (posAux[0] == 0) {
+                direcciones.add(auxX[0]);
+                direcciones.add(auxY[0]);
+                direcciones.add(auxX[1]);
+                direcciones.add(auxY[1]);
+            } else {
+                /* por teclas a la inversa */
+                if (Math.abs(posAux[1]) < Math.abs(posAux[0])) {
+                    direcciones.add(auxX[0]);
+                    direcciones.add(auxY[0]);
+                    direcciones.add(auxX[1]);
+                    direcciones.add(auxY[1]);
+                } else {
+                    direcciones.add(auxY[0]);
+                    direcciones.add(auxX[0]);
+                    direcciones.add(auxY[1]);
+                    direcciones.add(auxX[1]);
+                }
+            }
+            boolean accionRealizada = false;
+            while (!accionRealizada && direcciones.size() > 0) {
+                String direccion = direcciones.getFirst();
+                direcciones.remove(direccion);
+                String accion = comprobarAccion(posicionEnemigo, direccion);
+                switch (direccion) {
+                    case "W":
+                        switch (accion) {
+                            case "mover":
+                                this.moverPersonaje(posicionEnemigo[0] - 1, posicionEnemigo[1],
+                                        escenario);
+                                accionRealizada = true;
+                                break;
+                            case "atacar":
+                                if (escenario[posicionEnemigo[0] - 1][posicionEnemigo[1]]
+                                        .equals("" + gestorJuego.buscarProta().getId())) {
+                                    this.atacarPersonaje(posicionEnemigo[0] - 1, posicionEnemigo[1],
+                                            escenario);
+                                    accionRealizada = true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case "A":
+                        switch (accion) {
+                            case "mover":
+                                this.moverPersonaje(posicionEnemigo[0], posicionEnemigo[1] - 1,
+                                        escenario);
+                                accionRealizada = true;
+                                break;
+                            case "atacar":
+
+                                if (escenario[posicionEnemigo[0]][posicionEnemigo[1] - 1]
+                                        .equals("" + gestorJuego.buscarProta().getId())) {
+                                    this.atacarPersonaje(posicionEnemigo[0], posicionEnemigo[1] - 1,
+                                            escenario);
+                                    accionRealizada = true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case "S":
+                        switch (accion) {
+                            case "mover":
+                                this.moverPersonaje(posicionEnemigo[0] + 1, posicionEnemigo[1],
+                                        escenario);
+                                accionRealizada = true;
+                                break;
+                            case "atacar":
+                                if (escenario[posicionEnemigo[0] + 1][posicionEnemigo[1]]
+                                        .equals("" + gestorJuego.buscarProta().getId())) {
+                                    this.atacarPersonaje(posicionEnemigo[0] + 1, posicionEnemigo[1],
+                                            escenario);
+                                    accionRealizada = true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case "D":
+                        switch (accion) {
+                            case "mover":
+                                this.moverPersonaje(posicionEnemigo[0], posicionEnemigo[1] + 1,
+                                        escenario);
+                                accionRealizada = true;
+                                break;
+                            case "atacar":
+                                if (escenario[posicionEnemigo[0]][posicionEnemigo[1] + 1]
+                                        .equals("" + gestorJuego.buscarProta().getId())) {
+                                    this.atacarPersonaje(posicionEnemigo[0], posicionEnemigo[1] + 1,
+                                            escenario);
+                                    accionRealizada = true;
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } else {
+            ArrayList<String> direcciones = new ArrayList<>(Arrays.asList("A", "W", "S", "D"));
+            boolean movido = false;
+            while (!movido && direcciones.size() > 0) {
+                String direccion = direcciones.get(r.nextInt(direcciones.size()));
+                direcciones.remove(direccion);
+                if (comprobarAccion(posicionEnemigo, direccion).equals("mover")) {
+                    movido = true;
+                    switch (direccion) {
+                        case "W":
+                            this.moverPersonaje(posicionEnemigo[0] - 1, posicionEnemigo[1],
+                                    escenario);
+                            break;
+                        case "A":
+                            this.moverPersonaje(posicionEnemigo[0], posicionEnemigo[1] - 1,
+                                    escenario);
+                            break;
+                        case "S":
+                            this.moverPersonaje(posicionEnemigo[0] + 1, posicionEnemigo[1],
+                                    escenario);
+                            break;
+                        case "D":
+                            this.moverPersonaje(posicionEnemigo[0], posicionEnemigo[1] + 1,
+                                    escenario);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
     }
 
     @Override
