@@ -32,10 +32,8 @@ public class PrimaryController {
     @FXML
     public void initialize() {
         SceneManager sm = SceneManager.getInstance();
-
         // La vista del juego
         sm.setScene(SceneID.GAME, "game");
-
         Scene juego = sm.getScene(SceneID.GAME);
         AnchorPane.setBottomAnchor(juego.getRoot(), 0.0);
         AnchorPane.setTopAnchor(juego.getRoot(), 0.0);
@@ -45,7 +43,6 @@ public class PrimaryController {
 
         // La vista del prota
         sm.setScene(SceneID.PLAYER, "player");
-
         Scene prota = sm.getScene(SceneID.PLAYER);
         AnchorPane.setBottomAnchor(prota.getRoot(), 0.0);
         AnchorPane.setTopAnchor(prota.getRoot(), 0.0);
@@ -55,7 +52,6 @@ public class PrimaryController {
 
         // La vista con los mensajes
         sm.setScene(SceneID.CONSOLE, "console");
-
         Scene mensaje = sm.getScene(SceneID.CONSOLE);
         AnchorPane.setBottomAnchor(mensaje.getRoot(), 0.0);
         AnchorPane.setTopAnchor(mensaje.getRoot(), 0.0);
@@ -65,7 +61,6 @@ public class PrimaryController {
 
         // La vista de los enemigos
         sm.setScene(SceneID.ENEMIES, "enemies");
-
         Scene enemigo = sm.getScene(SceneID.ENEMIES);
         AnchorPane.setBottomAnchor(enemigo.getRoot(), 0.0);
         AnchorPane.setTopAnchor(enemigo.getRoot(), 0.0);
