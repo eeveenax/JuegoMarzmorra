@@ -190,7 +190,6 @@ public class MainController {
             imagen = new Protagonista().getProtaChica();
         else
             imagen = new Protagonista().getProtaChico();
-
         gestorJuego.getPersonajes().add(new Protagonista(imagen, nombre, puntosVida, porcentajeCritico, fuerza,
                 defensa, velocidad, rol, 999));
         gestorJuego.getPersonajes().sort(null);

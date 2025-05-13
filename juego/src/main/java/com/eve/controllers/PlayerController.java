@@ -63,10 +63,6 @@ public class PlayerController implements Observer {
 
     public void rellenarDatos(Protagonista prota) {
         String imagenSeleccionada = prota.getImagen();
-        if (imagenSeleccionada.equals("/com/eve/images/chico.png"))
-            imagenSeleccionada = "/com/eve/images/protaChico.png";
-        else
-            imagenSeleccionada = "/com/eve/images/protaChica.png";
         image.setImage(new Image(getClass().getResourceAsStream(imagenSeleccionada)));
         image.setFitHeight(128);
         image.setFitWidth(128);

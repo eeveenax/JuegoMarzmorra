@@ -75,7 +75,6 @@ public class EnemiesController implements Observer {
                 gridPane.add(label, 1, i);
                 GridPane.setHalignment(image, HPos.CENTER);
                 GridPane.setValignment(image, VPos.CENTER);
-
             }
         }
     }
@@ -86,5 +85,4 @@ public class EnemiesController implements Observer {
         contruirGrid();
         rellenarGrid(gestor);
     }
-
 }
