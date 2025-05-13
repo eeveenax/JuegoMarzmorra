@@ -235,7 +235,6 @@ public abstract class Personaje implements Comparable {
         this.setPosicion(new int[] { nuevaFila, nuevaCol });
         escenario[nuevaFila][nuevaCol] = "" + this.id;
         gestor.setEvento("");
-
         gestor.notifyObservers();
     }
 
@@ -251,7 +250,6 @@ public abstract class Personaje implements Comparable {
      * @param escenario del juego.
      */
     public void atacarPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
-
     }
 
     /**

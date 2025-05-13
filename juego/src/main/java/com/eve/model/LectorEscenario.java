@@ -27,7 +27,6 @@ public class LectorEscenario {
 
     public String[][] leerCSV(File ficheroEntrada) throws IOException {
         LinkedList<String[]> filas = new LinkedList<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -41,7 +40,6 @@ public class LectorEscenario {
         numFilas = filas.size();
         numColumnas = filas.get(0).length;
         this.escenario = new String[numFilas][numColumnas];
-
         for (int i = 0; i < numFilas; i++) {
             if (filas.get(i).length != numColumnas) {
                 throw new IOException("El archivo CSV tiene filas con distinto número de columnas.");
@@ -53,7 +51,6 @@ public class LectorEscenario {
         }
         setNumColumnas(numColumnas);
         setNumFilas(numFilas);
-
         return this.escenario;
     }
 

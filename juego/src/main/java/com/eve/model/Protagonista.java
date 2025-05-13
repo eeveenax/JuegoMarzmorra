@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class Protagonista extends Personaje {
-
     private int nivel;
     private int muertes;
     private int xp;
@@ -37,7 +36,6 @@ public class Protagonista extends Personaje {
      * @param nivel             nivel del prota, 0 al iniciarse el juego
      * @param xp                experiencia para subir de nivel
      */
-
     public Protagonista(String imagen, String nombre, int puntosvida, int porcentajeCritico, int fuerza, int defensa,
             int velocidad, String tipoJugador, int id) {
         super(imagen, nombre, puntosvida, porcentajeCritico, fuerza, defensa, velocidad, id);
@@ -179,7 +177,6 @@ public class Protagonista extends Personaje {
         int xpDa = enemigo.getXpDan();
         int vidaDa = enemigo.getVidaDan();
         int defensaDan = enemigo.getDefensaDan();
-
         int danioAenemigo = this.fuerza - defensaEnemigo;
         if (r.nextInt(100) < this.porcentajeCritico)
             danioAenemigo *= 2;
@@ -200,7 +197,6 @@ public class Protagonista extends Personaje {
             gestor.setEvento("Enemigo Asesinado con el ID: " + enemigo.getId() + ". Recibes " + enemigo.getVidaDan()
                     + " de vida, " + enemigo.getXpDan() + " de experiencia, " + enemigo.getFuerzaDan() + " de fuerza y "
                     + enemigo.getDefensaDan() + " de defensa.");
-
             for (Iterator<Personaje> iterator = personajes.iterator(); iterator.hasNext();) {
                 Personaje p = iterator.next();
                 if (p.getId() == enemigo.getId()) {
@@ -211,7 +207,6 @@ public class Protagonista extends Personaje {
             this.subirNivel();
             gestor.notifyObservers();
         }
-
     }
 
     /**
@@ -227,7 +222,6 @@ public class Protagonista extends Personaje {
     public void realizarAccionProta(String teclaPresionada) {
         GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
         String escenario[][] = gestorJuego.getEscenario().getEscenario();
-
         // Escucha de teclado
         int[] posicion = this.getPosicion();
         String accion = comprobarAccion(this.getPosicion(), teclaPresionada);
@@ -276,7 +270,6 @@ public class Protagonista extends Personaje {
                     case "atacar":
                         this.atacarPersonaje(posicion[0], posicion[1] + 1, escenario);
                         break;
-
                     default:
                         break;
                 }
@@ -292,7 +285,6 @@ public class Protagonista extends Personaje {
         int nivelActual = this.getNivel();
         int nuevoNivel = calcularNivelPorXP(xp);
         boolean nivelCambio = false;
-
         if (nuevoNivel > nivelActual) {
             this.setNivel(nuevoNivel);
             gestorJuego.notifyObservers();
@@ -316,7 +308,6 @@ public class Protagonista extends Personaje {
             }
             nuevosEnemigos(nivelS);
         }
-
     }
 
     /**
@@ -368,5 +359,4 @@ public class Protagonista extends Personaje {
         return super.toString() + " Muertes: " + this.muertes + " Nvl:  " + this.nivel + " XP: " + this.xp
                 + " Tipo de jugador: " + this.tipoJugador;
     }
-
 }

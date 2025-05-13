@@ -69,7 +69,6 @@ public class Escenario {
         HashSet<String> posicionesOcupadas = new HashSet<>();
         ArrayList<Personaje> personajes = gestorJuego.getPersonajes();
         Random r = new Random();
-
         for (int i = 0; i < personajes.size(); i++) {
             if (personajes.get(i) instanceof Protagonista) {
                 personajes.get(i).setPosicion(new int[] { 0, 0 });

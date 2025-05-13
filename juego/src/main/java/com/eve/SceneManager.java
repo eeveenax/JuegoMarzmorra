@@ -3,7 +3,6 @@ package com.eve;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,7 +20,6 @@ import javafx.stage.Stage;
 public class SceneManager {
     // Instancia única (singleton) de la clase SceneManager
     private static SceneManager instance;
-
     private Stage stage;
     private URL styles;
     private HashMap<SceneID, Scene> scenes;
@@ -86,7 +84,6 @@ public class SceneManager {
      */
     public void setScene(SceneID sceneID, String fxml) {
         Screen screen = Screen.getPrimary();
-
         // Tamaño de la pantalla
         double screenWidth = screen.getBounds().getWidth();
         double screenHeight = screen.getBounds().getHeight();
@@ -123,7 +120,6 @@ public class SceneManager {
      * @param sceneID identificador de la escena a cargar.
      */
     public void loadScene(SceneID sceneID) {
-
         if (scenes.containsKey(sceneID)) {
             stage.setScene(scenes.get(sceneID)); // El setScene establece (set) la escena en la ventana principal
             stage.show(); // Carga la ventana en la que se muestra la nueva escena

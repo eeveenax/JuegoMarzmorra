@@ -28,7 +28,6 @@ public class ProtasEstadisticas {
         this.estadisticas.put("asesino", estadisticasAsesino);
         this.estadisticas.put("aventurero", estadisticasAventurero);
         this.estadisticas.put("protector", estadisticasProtector);
-
     }
 
     /**

@@ -7,7 +7,6 @@ import java.util.Random;
 
 /** Clase enemigo, para contruir a los enemigos */
 public class Enemigo extends Personaje {
-
     private int percepcion;
     private int xpDan;
     private int vidaDan;
@@ -46,7 +45,6 @@ public class Enemigo extends Personaje {
         this.xpDan = xpDan;
         this.defensaDan = defensaDan;
         this.fuerzaDan = fuerzaDan;
-
     }
 
     /**

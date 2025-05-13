@@ -42,7 +42,6 @@ public class GestorJuego {
      * 
      * @return escenario
      */
-
     public Escenario getEscenario() {
         return this.escenario;
     }
@@ -61,7 +60,6 @@ public class GestorJuego {
      * 
      * @return personajes
      */
-
     public ArrayList<Personaje> getPersonajes() {
         return this.personajes;
     }
@@ -263,5 +261,4 @@ public class GestorJuego {
         }
         notifyObservers();
     }
-
 }
