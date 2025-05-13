@@ -84,7 +84,7 @@ public class MainController {
         GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
         ProtasEstadisticas estadisticas = new ProtasEstadisticas();
         /**
-         * Para que los radioButtons estñen en el mismo grupo y solo se pueda
+         * Para que los radioButtons estén en el mismo grupo y solo se pueda
          * seleccionar 1 de ellos
          */
         ToggleGroup group = new ToggleGroup();
