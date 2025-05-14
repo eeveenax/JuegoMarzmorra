@@ -11,6 +11,7 @@ public class Escenario {
     private String[][] escenario;
     private final String suelo = "/com/eve/images/suelo.png";
     private final String pared = "/com/eve/images/pared.png";
+    LectorEscenario lector = new LectorEscenario();
 
     /** Constructor de la clase escenario */
     public Escenario() {
@@ -34,7 +35,6 @@ public class Escenario {
      *                 escenario
      */
     public void setEscenario(String fileName) {
-        LectorEscenario lector = new LectorEscenario();
         if (fileName.isEmpty())
             fileName = "juego\\src\\main\\resources\\com\\eve\\data\\escenario.csv";
         try {
