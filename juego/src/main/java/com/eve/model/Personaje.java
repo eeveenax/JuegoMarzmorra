@@ -230,8 +230,13 @@ public abstract class Personaje implements Comparable {
      */
     public void moverPersonaje(int nuevaFila, int nuevaCol, String[][] escenario) {
         GestorJuego gestor = Proveedor.getInstance().getGestorJuego();
+        Escenario esc = gestor.getEscenario();
         int[] pos = this.getPosicion();
-        escenario[pos[0]][pos[1]] = "s";
+        int[] posTrampa = esc.getPosT();
+        if (pos[0] == posTrampa[0] && pos[1] == posTrampa[1])
+            escenario[pos[0]][pos[1]] = "t";
+        else
+            escenario[pos[0]][pos[1]] = "s";
         this.setPosicion(new int[] { nuevaFila, nuevaCol });
         escenario[nuevaFila][nuevaCol] = "" + this.id;
         gestor.setEvento("");
@@ -273,6 +278,8 @@ public abstract class Personaje implements Comparable {
                 if (posiciones[0] - 1 >= 0) {
                     if (escenario[posiciones[0] - 1][posiciones[1]].equals("s"))
                         return "mover";
+                    else if (escenario[posiciones[0] - 1][posiciones[1]].equals("t"))
+                        return "trampa";
                     else if (!escenario[posiciones[0] - 1][posiciones[1]].equals("p"))
                         return "atacar";
                     else
@@ -283,6 +290,8 @@ public abstract class Personaje implements Comparable {
                 if (posiciones[1] - 1 >= 0) {
                     if (escenario[posiciones[0]][posiciones[1] - 1].equals("s"))
                         return "mover";
+                    else if (escenario[posiciones[0]][posiciones[1] - 1].equals("t"))
+                        return "trampa";
                     else if (!escenario[posiciones[0]][posiciones[1] - 1].equals("p"))
                         return "atacar";
                     else
@@ -293,6 +302,8 @@ public abstract class Personaje implements Comparable {
                 if (posiciones[0] + 1 < escenario.length) {
                     if (escenario[posiciones[0] + 1][posiciones[1]].equals("s"))
                         return "mover";
+                    else if (escenario[posiciones[0] + 1][posiciones[1]].equals("t"))
+                        return "trampa";
                     else if (!escenario[posiciones[0] + 1][posiciones[1]].equals("p"))
                         return "atacar";
                     else
@@ -303,6 +314,8 @@ public abstract class Personaje implements Comparable {
                 if (posiciones[1] + 1 < escenario[0].length) {
                     if (escenario[posiciones[0]][posiciones[1] + 1].equals("s"))
                         return "mover";
+                    else if (escenario[posiciones[0]][posiciones[1] + 1].equals("t"))
+                        return "trampa";
                     else if (!escenario[posiciones[0]][posiciones[1] + 1].equals("p"))
                         return "atacar";
                     else

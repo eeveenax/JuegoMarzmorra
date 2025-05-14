@@ -234,6 +234,11 @@ public class Protagonista extends Personaje {
                     case "atacar":
                         this.atacarPersonaje(posicion[0] - 1, posicion[1], escenario);
                         break;
+                    case "trampa":
+                        this.puntosvida = puntosvida - 20;
+                        gestorJuego.notifyObservers();
+                        this.moverPersonaje(posicion[0] - 1, posicion[1], escenario);
+                        break;
                     default:
                         break;
                 }
@@ -245,6 +250,11 @@ public class Protagonista extends Personaje {
                         break;
                     case "atacar":
                         this.atacarPersonaje(posicion[0], posicion[1] - 1, escenario);
+                        break;
+                    case "trampa":
+                        this.puntosvida = puntosvida - 20;
+                        this.moverPersonaje(posicion[0], posicion[1] - 1, escenario);
+                        gestorJuego.notifyObservers();
                         break;
                     default:
                         break;
@@ -258,6 +268,11 @@ public class Protagonista extends Personaje {
                     case "atacar":
                         this.atacarPersonaje(posicion[0] + 1, posicion[1], escenario);
                         break;
+                    case "trampa":
+                        this.puntosvida = puntosvida - 20;
+                        this.moverPersonaje(posicion[0] + 1, posicion[1], escenario);
+                        gestorJuego.notifyObservers();
+                        break;
                     default:
                         break;
                 }
@@ -269,6 +284,11 @@ public class Protagonista extends Personaje {
                         break;
                     case "atacar":
                         this.atacarPersonaje(posicion[0], posicion[1] + 1, escenario);
+                        break;
+                    case "trampa":
+                        this.puntosvida = puntosvida - 20;
+                        this.moverPersonaje(posicion[0], posicion[1] + 1, escenario);
+                        gestorJuego.notifyObservers();
                         break;
                     default:
                         break;

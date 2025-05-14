@@ -221,6 +221,13 @@ public class Enemigo extends Personaje {
                                     accionRealizada = true;
                                 }
                                 break;
+                            case "trampa":
+                                this.puntosvida = puntosvida - 20;
+                                gestorJuego.notifyObservers();
+                                this.moverPersonaje(posicion[0] - 1, posicion[1], escenario);
+                                accionRealizada = true;
+
+                                break;
                             default:
                                 break;
                         }
@@ -241,6 +248,13 @@ public class Enemigo extends Personaje {
                                     accionRealizada = true;
                                 }
                                 break;
+                            case "trampa":
+                                this.puntosvida = puntosvida - 20;
+                                gestorJuego.notifyObservers();
+                                this.moverPersonaje(posicion[0], posicion[1] - 1, escenario);
+                                accionRealizada = true;
+
+                                break;
                             default:
                                 break;
                         }
@@ -259,6 +273,13 @@ public class Enemigo extends Personaje {
                                             escenario);
                                     accionRealizada = true;
                                 }
+                                break;
+                            case "trampa":
+                                this.puntosvida = puntosvida - 20;
+                                gestorJuego.notifyObservers();
+                                this.moverPersonaje(posicion[0] + 1, posicion[1], escenario);
+                                accionRealizada = true;
+
                                 break;
                             default:
                                 break;
@@ -279,7 +300,12 @@ public class Enemigo extends Personaje {
                                     accionRealizada = true;
                                 }
                                 break;
-
+                            case "trampa":
+                                this.puntosvida = puntosvida - 20;
+                                gestorJuego.notifyObservers();
+                                this.moverPersonaje(posicion[0], posicion[1] + 1, escenario);
+                                accionRealizada = true;
+                                break;
                             default:
                                 break;
                         }
@@ -294,7 +320,8 @@ public class Enemigo extends Personaje {
             while (!movido && direcciones.size() > 0) {
                 String direccion = direcciones.get(r.nextInt(direcciones.size()));
                 direcciones.remove(direccion);
-                if (comprobarAccion(posicionEnemigo, direccion).equals("mover")) {
+                if (comprobarAccion(posicionEnemigo, direccion).equals("mover")
+                        || comprobarAccion(posicionEnemigo, direccion).equals("trampa")) {
                     movido = true;
                     switch (direccion) {
                         case "W":

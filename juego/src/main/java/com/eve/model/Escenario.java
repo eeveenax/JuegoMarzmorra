@@ -11,11 +11,33 @@ public class Escenario {
     private String[][] escenario;
     private final String suelo = "/com/eve/images/suelo.png";
     private final String pared = "/com/eve/images/pared.png";
+    private final String trampa = "/com/eve/images/trampa.png";
     LectorEscenario lector = new LectorEscenario();
+    private int[] posT = new int[2];
 
     /** Constructor de la clase escenario */
     public Escenario() {
         setEscenario("");
+        verPosicionTrampa();
+    }
+
+    public int[] getPosT() {
+        return this.posT;
+    }
+
+    public void setPosT(int[] posT) {
+        this.posT = posT;
+    }
+
+    public void verPosicionTrampa() {
+        for (int i = 0; i < escenario.length; i++) {
+            for (int j = 0; j < escenario[i].length; j++) {
+                if (escenario[i][j].equals("t")) {
+                    setPosT(new int[] { i, j });
+                }
+            }
+        }
+        System.out.println("Posicion trampa: " + getPosT()[0] + " " + getPosT()[1]);
     }
 
     /**
@@ -70,6 +92,10 @@ public class Escenario {
 
     public void setLector(LectorEscenario lector) {
         this.lector = lector;
+    }
+
+    public String getTrampa() {
+        return this.trampa;
     }
 
     public void generarPosiciones() {
