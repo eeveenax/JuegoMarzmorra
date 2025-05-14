@@ -128,7 +128,7 @@ public class GameController implements Observer {
         for (int i = 0; i < numFilas; i++) {
             for (int j = 0; j < numColumnas; j++) {
                 ImageView imageView;
-                if ("p".equals(escenario[i][j])) {
+                if (escenario[i][j].equals("p")) {
                     imageView = new ImageView(pared);
                 } else {
                     imageView = new ImageView(suelo);
