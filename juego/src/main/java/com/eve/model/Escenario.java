@@ -64,6 +64,14 @@ public class Escenario {
         return this.pared;
     }
 
+    public LectorEscenario getLector() {
+        return this.lector;
+    }
+
+    public void setLector(LectorEscenario lector) {
+        this.lector = lector;
+    }
+
     public void generarPosiciones() {
         GestorJuego gestorJuego = Proveedor.getInstance().getGestorJuego();
         HashSet<String> posicionesOcupadas = new HashSet<>();
